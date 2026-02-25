@@ -1,0 +1,168 @@
+
+import csv
+open_file = open(r"C:\Users\mengw\OneDrive\coding\invalid numbers over 10 T.csv")
+
+
+
+test_file = open_file.read()
+
+test_file_no_blanks = test_file.strip()
+
+ 
+list2 = test_file_no_blanks.split()
+
+
+list3 = " ".join(list2)
+
+list4 = list3.split(",")
+
+
+
+filterd_list = [i.strip() for i in list4 if i.strip()]
+
+filterd_list2 = " ".join(filterd_list)
+
+
+
+
+box7082 = filterd_list2.split()
+
+
+#box for ID
+
+box_10 = box7082[108]
+
+box_9 = box7082[96]
+
+box_8 = box7082[84]
+
+box_7 = box7082[72]
+
+box_6 = box7082[60]
+
+box_5 = box7082[48]
+
+box_4 = box7082[36]
+
+box_3 = box7082[24]
+
+box_1 = box7082[12]
+
+box_2 = box7082[0]
+
+
+items = len(box7082)
+
+print(items)
+box23 = []
+box24 = []
+
+
+    
+new_box = box7082
+
+for i in box7082:
+    if (i != box_2 and i != box_1 and i != box_3 and i != box_4 and i != box_5 and 
+        i != box_6 and i != box_7 and i != box_8  and i != box_9 and i != box_10):
+        box23.append(i)
+    elif i == box_2:
+        continue
+    elif i == box_1:
+        continue
+    elif i == box_3:
+        continue
+    elif i == box_4:
+        continue 
+    elif i == box_5:
+        continue
+    elif i == box_6:
+        continue
+    elif i == box_7:
+        continue 
+    elif i == box_8:
+        continue 
+    elif i == box_9:
+        continue                 
+    elif i == box_10:
+        continue
+    else:
+        break
+
+a_10 = box7082[109]
+
+a_9 = box7082[97]
+
+a_8 = box7082[85]
+
+a_7 = box7082[73]
+
+a_6 = box7082[61]
+
+a_5 = box7082[49]
+
+a_4 = box7082[37]
+
+a_3 = box7082[25]
+
+a_2 = box23[11]
+
+a_1 = box23[0]
+
+
+print(len(box23))
+
+for i in box23:
+    if (i != a_1):
+        box24.append(i)
+    elif i == a_1:
+        continue
+    else:
+        break
+
+
+floats = [float(i) for i in box24]
+
+
+
+bad_box = []
+
+good_box = []
+
+
+for i in floats:
+    if i >= 10.000:
+      bad_box.append(i) 
+    elif i <= 10.000:
+      good_box.append(i)
+    else:
+     break
+
+if bad_box != []:
+    print("bad")
+else:
+    print("good")
+
+
+
+#and i != box_2 and i != box_3 and i != box_4
+#and i != a_2 and i != a_3 and i != a_4 and i != a_5 and 
+        #i != a_6 and i != a_7 and i != a_8 and i != a_9 and i != a_10
+
+'''elif i == a_2:
+        continue
+    elif i == a_3:
+        continue
+    elif i == a_4:
+        continue 
+    elif i == a_5:
+        continue
+    elif i == a_6:
+        continue
+    elif i == a_7:
+        continue 
+    elif i == a_8:
+        continue                 
+    elif i == a_9:
+        continue
+    elif i == a_10:
+        continue'''
