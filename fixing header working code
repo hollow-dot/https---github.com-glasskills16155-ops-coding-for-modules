@@ -57,7 +57,7 @@ good_key = []
 
 bad_key = []
 
-print(split_heads)
+#print(split_heads)
 
 while True:
     if split_heads == ("batch_id"):
@@ -66,7 +66,7 @@ while True:
     else:
         bad_key.append("wrong")
         break
-print(bad_key)
+#print(bad_key)
 while True:
     if split_heads1 == ("timestamp"):
         good_key.append("correct")
@@ -148,7 +148,7 @@ while True:
 key_amount = 12
 
 test_key = len(good_key)
-print(good_key)
+#print(good_key)
 
 while True:
     if test_key == key_amount:

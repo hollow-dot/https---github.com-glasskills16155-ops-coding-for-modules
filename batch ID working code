@@ -1,63 +1,79 @@
+# reads, opens, and spitst the file section one
+
 import csv
-open_file = open("batch ID correct.csv","r")
+open_file = open(r"C:\Users\mengw\OneDrive\coding\batch ID correct.csv")
 
 
+file_contents = open_file.read()
 
-test_file = open_file.read()
+file_striped = file_contents.strip()
 
-test_file_no_blanks = test_file.strip()
+split_items = file_striped.split()
 
-list2 = test_file_no_blanks.split()
+# end of section one
+
+# gets rid of batch ID header section 2
+
+header = []
+for i in split_items:
+    if i == 'batch_id':
+        header.append(split_items.pop(0))
+        break
+
+expected_amount = len(split_items)
+
+id_numbers = split_items
+
+# end of section 2
+# checks to see if there are any duplicate numbers in batch ID section 3
 
 
-box9 =[]
-for i in list2: 
-   if i == 'batch_id':
-      box9.append(list2.pop(0))
-      break
-triger_key2 = len(list2)
+def check_duplicates():
+    total_index = len(id_numbers)
+    remaning_checks = total_index
 
-def how():
- index_for_list = len(list2)
- box90 = index_for_list
+    current_index = len(id_numbers)
+    print(current_index)
+    switch_index = 1
+    results_of_check = []
+    copy_notused = []
 
- 
- index = len(list2)
- print(index)
- box = 1
- box23 = []
- box24 = []
- 
- while True:
-    if index != 0 and box90 != 0:
-      index=index-box
-      list0=list2[index]
-      box4 = list0
-      print(box4)
-      box90 = box90 - 1
-      for i in list2:
-       if i != box4 :
-        box24.append(1)
-       elif i == box4:
-        box23.append(0)
-      box4 = None
-    else:
-     break
-    
-    print(index,box,box90,box23)
- return box23
-how()
+    while True:
+        if current_index != 0 and remaning_checks != 0:
+            current_index = current_index-switch_index
+            current_item = id_numbers[current_index]
+            current_id = current_item
+            print(current_id)
+            remaning_checks = remaning_checks - 1
+            for i in id_numbers:
+                if i != current_id:
+                    copy_notused.append(1)
+                elif i == current_id:
+                    results_of_check.append(0)
+            current_id = None
+        else:
+            break
+        # print(index,box,box90,box23)
+    return results_of_check
 
-triger_key = len(how())
+
+check_duplicates()
+
+# end of section 3
+# lets you know if there is a duplicate in the batch ID numbers section 4
+
+result_amount = len(check_duplicates())
 
 while True:
-  if triger_key == triger_key2:
-    print("good")
-    break
-  elif triger_key != triger_key2:
-    print("not good")
-    break
-  else:
-    print("error")
+    if result_amount == expected_amount:
+        print("good")
+        break
+    elif result_amount != expected_amount:
+        print("not good")
+        break
+    else:
+        print("error")
 
-#list2.pop(index_for_list)
+# list2.pop(index_for_list)
+
+# end of section 4

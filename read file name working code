@@ -3,7 +3,7 @@
 
 import os
 
-file_path = r"C:\Users\mengw\OneDrive\coding\MED_DATA_60202303140104.csv.csv"
+file_path = r"C:\Users\mengw\OneDrive\coding\MED_DATA_20230603140104.csv"
 
 file_name = os.path.basename(file_path)
 
@@ -39,7 +39,7 @@ date_no_sec = date[12:14]
 
 second = int(date_no_sec)
 
-print(year,month,day,hour,minute,second)
+#print(year,month,day,hour,minute,second)
 
 key1 = []
 key2 = []
