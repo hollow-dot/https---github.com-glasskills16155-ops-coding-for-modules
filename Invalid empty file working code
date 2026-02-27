@@ -1,0 +1,34 @@
+
+
+
+
+
+
+import csv
+open_file = open(r"C:\Users\mengw\OneDrive\coding\empty test.csv")
+
+open_file2 = open(r"C:\Users\mengw\OneDrive\coding\empty file.csv")
+
+
+test_file = open_file.read()
+
+test_file2 = open_file2.read()
+
+empty_box3 = ['']
+
+empty_box1 = []
+
+empty_box = []
+
+empty_box.append(test_file)
+
+empty_box1.append(test_file2)
+
+if empty_box != empty_box1:
+    print("good")
+else:
+    print("bad")
+
+
+#print(empty_box,empty_box1)
+
