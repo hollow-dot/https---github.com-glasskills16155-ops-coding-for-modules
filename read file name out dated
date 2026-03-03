@@ -3,7 +3,7 @@
 
 import os
 
-file_path = r"C:\Users\mengw\OneDrive\coding\MED_DATA_20230603140104.csv"
+file_path = r"C:\Users\mengw\OneDrive\coding\MED_DATA_60202303140104.csv.csv"
 
 file_name = os.path.basename(file_path)
 

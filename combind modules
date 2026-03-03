@@ -1,0 +1,80 @@
+
+
+
+from datetime import datetime
+import os
+good_key = []
+
+bad_key = []
+ 
+file_path = r"C:\Users\mengw\OneDrive\coding\combind module test\MED_DATA_20230603140104 2.csv"
+file_path_copy = file_path
+file_name = os.path.basename(file_path)
+
+result = file_name.split("_")
+result = result[2]
+result = result.split(".")
+result = result[0]
+
+
+date = result
+
+date_no_year = date[0:4]
+
+year = int(date_no_year)
+
+date_no_mon = date[4:6]
+
+month = int(date_no_mon)
+
+date_no_day = date[6:8]
+
+day = int(date_no_day)
+
+date_no_hou = date[8:10]
+
+hour = int(date_no_hou)
+
+date_no_min = date[10:12]
+
+minute = int(date_no_min)
+
+date_no_sec = date[12:14]
+
+second = int(date_no_sec)
+
+try:
+    date_time = datetime(year, + month, + day, + hour, + minute, + second)
+except ValueError as e:
+    error = e
+    print(f"warning error has accrued invalid date{e}")
+else:
+    good_key.append(1)
+    print("good valid date")
+
+
+open_file = open(r"file_path_copy")
+
+opens_empty_file = open(
+    r"C:\Users\mengw\OneDrive\coding\empty file correct.csv")
+
+
+reads_file = open_file.read()
+
+reads_empty_file = opens_empty_file.read()
+
+
+byte0_file = []
+
+unknown_byte_file = []
+
+unknown_byte_file.append(reads_file)
+
+byte0_file.append(reads_empty_file)
+# end of section 2
+# lets you know if a file has 0 bytes or not section 3
+if unknown_byte_file == byte0_file:
+    print("bad")
+else:
+    print("good")
+# end of section 3

@@ -1,0 +1,22 @@
+
+
+
+
+
+
+import os
+user_input = input()
+file_path = user_input
+file_path_copy = file_path
+file_name = os.path.basename(file_path)
+
+
+print(file_name)
+open_please = open(file_path_copy)
+
+reads_file = open_please.read()
+
+print(open_please)
+box = len(8,8,8,)
+
+print(box)

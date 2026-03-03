@@ -5,65 +5,16 @@
 
 
 import csv
-open_file = open("batch ID correct.csv","r")
+open_file = open(r"C:\Users\mengw\OneDrive\coding\headers wrong.csv")
 
 
+file_contents = open_file.read()
 
-test_file = open_file.read()
+clean_contents = file_contents.strip()
 
-test_file_no_blanks = test_file.strip()
-
-list2 = test_file_no_blanks.split()
+# list2 = test_file_no_blanks.split()
 
 
-box9 =[]
-for i in list2: 
-   if i == 'batch_id':
-      box9.append(list2.pop(0))
-      break
-triger_key2 = len(list2)
+box3 = clean_contents[0:109]
 
-def how():
- index_for_list = len(list2)
- box90 = index_for_list
- print(box90)
- 
- index = len(list2)
- print(index)
- box = 1
- box23 = []
- box24 = []
- 
- while True:
-    if index != 0 and box90 != 0:
-      index=index-box
-      list0=list2[index]
-      box4 = list0
-      print(box4)
-      box90 = box90 - 1
-      for i in list2:
-       if i != box4 :
-        box24.append(1)
-       elif i == box4:
-        box23.append(0)
-      box4 = None
-    else:
-     break
-    
-    print(index,box,box90,box23)
- return box23
-how()
-
-triger_key = len(how())
-
-while True:
-  if triger_key == triger_key2:
-    print("good")
-    break
-  elif triger_key != triger_key2:
-    print("not good")
-    break
-  else:
-    print("error")
-
-#list2.pop(index_for_list)
+print(box3)

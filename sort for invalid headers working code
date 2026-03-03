@@ -1,0 +1,149 @@
+
+# section 1 opens,strips the file of whitespaces, and puts only the headers in a variable
+import csv
+open_file = open(r"C:\Users\mengw\OneDrive\coding\headers wrong.csv", "r")
+
+
+file_contents = open_file.read()
+
+clean_contents = file_contents.strip()
+
+
+headings = clean_contents[0:109]
+
+# end of section 1
+# section 2 separates each header into there own variable
+only_headings = headings
+
+total_headers = []
+
+unused_copys = []
+
+batch_header = only_headings[0:8]
+
+timestamp_header = only_headings[9:18]
+
+reading1_header = only_headings[19:27]
+
+reading2_header = only_headings[28:36]
+
+reading3_header = only_headings[37:45]
+
+reading4_header = only_headings[46:54]
+
+reading5_header = only_headings[55:63]
+
+reading6_header = only_headings[64:72]
+
+reading7_header = only_headings[73:81]
+
+reading8_header = only_headings[82:90]
+
+reading9_header = only_headings[91:99]
+
+reading10_header = only_headings[100:109]
+
+reading11_header = only_headings[100:109]
+# end of section 2
+# section 3 totals how many correct headers there are in the file
+total_headers = []
+
+unused_copys = []
+
+while True:
+    if batch_header == ("batch_id"):
+        total_headers.append("correct")
+        break
+    else:
+        unused_copys.append("wrong")
+        break
+while True:
+    if timestamp_header == ("timestamp"):
+        total_headers.append("correct")
+        break
+    else:
+        unused_copys.append("wrong")
+        break
+while True:
+    if reading1_header == ("reading1"):
+        total_headers.append("correct")
+        break
+    else:
+        unused_copys.append("wrong")
+        break
+
+while True:
+    if reading2_header == ("reading2"):
+        total_headers.append("correct")
+        break
+    else:
+        unused_copys.append("wrong")
+        break
+while True:
+    if reading3_header == ("reading3"):
+        total_headers.append("correct")
+        break
+    else:
+        unused_copys.append("wrong")
+        break
+while True:
+    if reading4_header == ("reading4"):
+        total_headers.append("correct")
+        break
+    else:
+        unused_copys.append("wrong")
+        break
+while True:
+    if reading5_header == ("reading5"):
+        total_headers.append("correct")
+        break
+    else:
+        unused_copys.append("wrong")
+        break
+while True:
+    if reading6_header == ("reading6"):
+        total_headers.append("correct")
+        break
+    else:
+        unused_copys.append("wrong")
+        break
+while True:
+    if reading7_header == ("reading7"):
+        total_headers.append("correct")
+        break
+    else:
+        unused_copys.append("wrong")
+        break
+while True:
+    if reading8_header == ("reading8"):
+        total_headers.append("correct")
+        break
+    else:
+        unused_copys.append("wrong")
+        break
+while True:
+    if reading9_header == ("reading9"):
+        total_headers.append("correct")
+        break
+    else:
+        unused_copys.append("wrong")
+        break
+while True:
+    if reading10_header == ("reading10"):
+        total_headers.append("correct")
+        break
+    else:
+        unused_copys.append("wrong")
+        break
+header_amount = len(total_headers)
+# end of section 3
+# section 4 tells you if all headers are correct in the file
+correct_amount = 12
+while True:
+    if header_amount == correct_amount:
+        print("correct")
+        break
+    else:
+        print("wrong")
+        break
+# end of section 4

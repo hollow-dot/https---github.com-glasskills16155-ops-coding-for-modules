@@ -1,0 +1,60 @@
+
+# section 1 opens,and strips the file of whitespaces
+import csv
+open_file = open(r"C:\Users\mengw\OneDrive\coding\missing columns wrong.csv")
+
+
+file_contents = open_file.read()
+
+clean_contents = file_contents.strip()
+# end of section 1
+
+# section 2 splits the file into items and removes all headers from the file
+split_items = clean_contents.split()
+
+remove_headers = split_items.pop(0)
+
+join_items = " ".join(split_items)
+# end of section 2
+
+# section 3 splits the contents by cammos and strips it of emptystrings
+split_comma = join_items.split(",")
+
+no_emptystring = [i.strip() for i in split_comma if i.strip()]
+
+without_headers = " ".join(no_emptystring)
+# end of section 3
+
+# section 4 determines if there is any items missing
+split_items = without_headers.split()
+
+first_column = len(split_items[0:12])
+
+second_column = len(split_items[12:24])
+
+third_column = len(split_items[24:36])
+
+forth_column = len(split_items[36:48])
+
+fifth_column = len(split_items[48:60])
+
+sixth_column = len(split_items[60:72])
+
+seventh_column = len(split_items[72:84])
+
+eighth_column = len(split_items[84:96])
+
+ninth_column = len(split_items[96:108])
+
+tenth_column = len(split_items[108:120])
+# end of section 4
+
+# section 5 lets you know if there is anything missing
+correct_columns = 12
+
+if tenth_column != correct_columns:
+    print("not correct")
+
+else:
+    print("correct")
+# end of section 5

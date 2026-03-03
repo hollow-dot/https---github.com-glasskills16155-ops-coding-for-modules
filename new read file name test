@@ -1,0 +1,18 @@
+
+
+from datetime import date
+
+
+box = [2005,9,45]
+
+
+
+try:
+ date_now = date(2005,9,45)
+ 
+except ValueError as e:
+ error = e
+ print(f"{e}")
+else:
+ print("good")
+

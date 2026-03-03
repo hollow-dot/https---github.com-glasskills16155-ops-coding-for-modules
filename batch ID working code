@@ -1,4 +1,4 @@
-# reads, opens, and spitst the file section one
+# reads, opens, and spitst the file contents section 1
 
 import csv
 open_file = open(r"C:\Users\mengw\OneDrive\coding\batch ID correct.csv")
@@ -6,9 +6,9 @@ open_file = open(r"C:\Users\mengw\OneDrive\coding\batch ID correct.csv")
 
 file_contents = open_file.read()
 
-file_striped = file_contents.strip()
+clean_contents = file_contents.strip()
 
-split_items = file_striped.split()
+split_items = clean_contents.split()
 
 # end of section one
 
@@ -33,7 +33,6 @@ def check_duplicates():
     remaning_checks = total_index
 
     current_index = len(id_numbers)
-    print(current_index)
     switch_index = 1
     results_of_check = []
     copy_notused = []
@@ -43,7 +42,6 @@ def check_duplicates():
             current_index = current_index-switch_index
             current_item = id_numbers[current_index]
             current_id = current_item
-            print(current_id)
             remaning_checks = remaning_checks - 1
             for i in id_numbers:
                 if i != current_id:
@@ -53,7 +51,6 @@ def check_duplicates():
             current_id = None
         else:
             break
-        # print(index,box,box90,box23)
     return results_of_check
 
 
@@ -73,7 +70,5 @@ while True:
         break
     else:
         print("error")
-
-# list2.pop(index_for_list)
 
 # end of section 4
