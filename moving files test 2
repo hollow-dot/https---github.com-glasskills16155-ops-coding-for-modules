@@ -1,0 +1,30 @@
+
+
+
+
+import shutil
+import csv
+import os
+
+
+folder_path = r"C:\Users\mengw\OneDrive\coding\file2"
+
+file_names = os.listdir(folder_path)
+run_trigger = 2
+
+
+
+for file in file_names:
+     print(file)
+     
+#shutil.move(file,r"C:\Users\mengw\OneDrive\coding\file1")
+
+
+box = open (file, mode='r')
+content = box.read()
+print(content)
+
+
+file = open("batch ID correct.csv")
+
+print(file.read())
