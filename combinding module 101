@@ -1,0 +1,36 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+file_path_copy = r"C:\Users\mengw\OneDrive\uknown files\MED_DATA_20060220141441.csv"
+
+
+open_file3 = open(file_path_copy)
+
+file_contents4 = open_file3.read()
+
+open_file3.close()
+
+clean_contents = file_contents4.strip()
+
+split_items = clean_contents.split()
+
+remove_headers = split_items.pop(0)
+
+join_items = " ".join(split_items)
+
+split_comma = join_items.split(",")
+
+no_emptystring = [i.strip() for i in split_comma if i.strip()]
+
+without_headers = " ".join(no_emptystring)

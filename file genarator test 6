@@ -1,0 +1,181 @@
+
+
+import os
+import shutil
+import random
+import string
+#folder_path_good = input()
+headers = ("batch_id,timestamp,reading1,reading2,reading3,reading4,reading5,reading6,reading7,reading8,reading9,reading10\n")
+box =  random.randint(1, 2)
+print(box)
+
+while True:
+ if box == 1:
+  id_num = []
+  numbers = 11
+  for numbers in range(1,11):
+   if numbers != 0 and numbers != 11:
+    random_num = random.randint(1, 1000)
+   id_num.append(random_num)
+
+
+  trigger = 11
+  trigger2 = 11
+  box3 = []
+  for trigger in range(1,110):
+     if trigger != 0 and trigger != 101:
+          b = round(random.uniform(1, 9), 3)
+          box3.append(float(b))
+     else:
+          break
+     
+  all_floats = ",".join(str(item) for item in box3)
+
+  split_list = all_floats.split(",")
+
+  list_one = split_list[0:10]
+
+  list_one = ",".join(str(item) for item in list_one)
+
+  list_two = split_list[10:20]
+
+  list_two = ",".join(str(item) for item in list_two)
+
+  list_three = split_list[20:30]
+
+  list_three = ",".join(str(item) for item in list_three)
+
+  list_four = split_list[30:40]
+
+  list_four = ",".join(str(item) for item in list_four)
+
+  list_five = split_list[40:50]
+
+  list_five = ",".join(str(item) for item in list_five)
+
+  list_six = split_list[50:60]
+
+  list_six = ",".join(str(item) for item in list_six)
+
+  list_seven = split_list[60:70]
+
+  list_seven = ",".join(str(item) for item in list_seven)
+
+  list_eight = split_list[70:80]
+
+  list_eight = ",".join(str(item) for item in list_eight)
+
+  list_nine = split_list[80:90]
+
+  list_nine = ",".join(str(item) for item in list_nine )
+
+  list_ten = split_list[90:110]
+
+  list_ten = ",".join(str(item) for item in list_ten)
+
+  box = (f"{id_num[0]},{list_one}\n")
+  box2 = (f"{id_num[1]},{list_two}\n")
+  box3 = (f"{id_num[2]},{list_three}\n")
+  box4 = (f"{id_num[3]},{list_four}\n")
+  box5 = (f"{id_num[0]},{list_five}\n")
+  box6 = (f"{id_num[5]},{list_six}\n")
+  box7 = (f"{id_num[7]},{list_seven}\n")
+  box8 = (f"{id_num[7]},{list_eight}\n")
+  box9 = (f"{id_num[8]},{list_nine}\n")
+  box10 = (f"{id_num[9]},{list_ten}\n")
+  total_number = headers + box + box2 + box3 + box4 + box5 + box6 + box7 + box8 + box9 + box10
+  break
+ elif box == 2:
+  id_num = []
+  numbers = 11
+  for numbers in range(1,11):
+   if numbers != 0 and numbers != 11:
+    random_num = random.randint(1, 1000)
+   id_num.append(random_num)
+
+
+  trigger = 11
+  trigger2 = 11
+  box3 = []
+  for trigger in range(1,110):
+     if trigger != 0 and trigger != 101:
+          b = round(random.uniform(1, 9), 3)
+          box3.append(float(b))
+     else:
+          break
+     
+  all_floats = ",".join(str(item) for item in box3)
+
+  split_list = all_floats.split(",")
+
+  list_one = split_list[0:10]
+
+  list_one = ",".join(str(item) for item in list_one)
+
+  list_two = split_list[10:20]
+
+  list_two = ",".join(str(item) for item in list_two)
+
+  list_three = split_list[20:30]
+
+  list_three = ",".join(str(item) for item in list_three)
+
+  list_four = split_list[30:40]
+
+  list_four = ",".join(str(item) for item in list_four)
+
+  list_five = split_list[40:50]
+
+  list_five = ",".join(str(item) for item in list_five)
+
+  list_six = split_list[50:60]
+
+  list_six = ",".join(str(item) for item in list_six)
+
+  list_seven = split_list[60:70]
+
+  list_seven = ",".join(str(item) for item in list_seven)
+
+  list_eight = split_list[70:80]
+
+  list_eight = ",".join(str(item) for item in list_eight)
+
+  list_nine = split_list[80:90]
+
+  list_nine = ",".join(str(item) for item in list_nine )
+
+  list_ten = split_list[90:110]
+
+  list_ten = ",".join(str(item) for item in list_ten)
+
+  box = (f"{id_num[0]},{list_one}\n")
+  box2 = (f"{id_num[1]},{list_two}\n")
+  box3 = (f"{id_num[2]},{list_three}\n")
+  box4 = (f"{id_num[3]},{list_four}\n")
+  box5 = (f"{id_num[4]},{list_five}\n")
+  box6 = (f"{id_num[5]},{list_six}\n")
+  box7 = (f"{id_num[6]},{list_seven}\n")
+  box8 = (f"{id_num[7]},{list_eight}\n")
+  box9 = (f"{id_num[8]},{list_nine}\n")
+  box10 = (f"{id_num[9]},{list_ten}\n")
+  total_number = headers + box + box2 + box3 + box4 + box5 + box6 + box7 + box8 + box9 + box10 
+  break
+
+print(total_number)
+
+'''file_path = r"C:\Users\mengw\OneDrive\coding"
+
+box1 = ("print done")
+
+box = 1
+while True:
+    if box != 0:
+        with open("MED_DATA_20230603140104 4.csv", "w") as file:
+            file.write(total_number)
+            name_only = file.name
+            full_path = os.path.join(file_path, name_only)
+        print("done")
+        shutil.move(full_path, folder_path_good)
+        box = box - 1
+    else:
+        break'''

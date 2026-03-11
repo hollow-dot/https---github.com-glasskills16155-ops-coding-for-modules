@@ -1,0 +1,13 @@
+
+
+
+
+
+
+import csv
+
+
+
+with open("file.csv","w") as file:
+    file.write("batch_id,timestamp")
+    print("done")

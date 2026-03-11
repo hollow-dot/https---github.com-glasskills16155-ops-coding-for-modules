@@ -3,6 +3,7 @@
 import csv
 from datetime import datetime
 import os
+import shutil
 
 file_path = input()
 file_path_copy = file_path
@@ -53,7 +54,7 @@ else:
 
 while True:
    if bad_key == ["empty"]:
-      print("invalid file")
+      print("invalid file wrong file name")
       quit()
    else:
       break
@@ -90,8 +91,7 @@ while True:
 
 while True:
    if bad_key == ["empty"]:
-      print("invalid file")
-      quit()
+      print("invalid file empty file")
    else:
       break
 
@@ -145,7 +145,7 @@ while True:
 
 while True:
    if bad_key == ["malformed"]:
-      print("invalid file")
+      print("invalid file malfomed")
       quit()
    else:
       break       
@@ -334,6 +334,7 @@ while True:
         break
     else:
         unused_copys.append("wrong")
+        print("invalid file wrong header")
         break
 header_amount = len(total_headers)
 
@@ -457,6 +458,7 @@ for i in readings_floats:
         break
 while True:
  if incorrect_floats != []:
+    print("invalid file over 10")
     break
  else:
     good_key.append(1)
@@ -502,6 +504,7 @@ while True:
         good_key.append(1)
         break
     elif result_amount != expected_amount:
+        print("invald file wrong id")
         break
     else:
         print("error")
@@ -511,6 +514,7 @@ total_tests = 7
 while True:
     if total_test_passed == total_tests:
         print("valid file")
+
         break
     else:
         print("invald file")

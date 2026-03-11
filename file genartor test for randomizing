@@ -1,0 +1,35 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import os
+import shutil
+import csv
+folder_path_good = input()
+file_path = r"C:\Users\mengw\OneDrive\coding"
+
+box1 = ("print done")
+
+box = 1
+while True:
+    if box != 0:
+        with open("MED_DATA_20230603140104 correct.csv", "w") as file:
+            file.write(box1)
+            name_only = file.name
+            full_path = os.path.join(file_path, name_only)
+        print("done")
+        shutil.move(full_path, folder_path_good)
+        box = box - 1
+    else:
+        break
