@@ -23,14 +23,47 @@ open_file3.close()
 
 clean_contents = file_contents4.strip()
 
-split_items = clean_contents.split()
-
-remove_headers = split_items.pop(0)
-
-join_items = " ".join(split_items)
-
-split_comma = join_items.split(",")
+split_comma = clean_contents.split(",")
 
 no_emptystring = [i.strip() for i in split_comma if i.strip()]
 
 without_headers = " ".join(no_emptystring)
+
+split_items = without_headers.split()
+
+header_column = len(split_items[0:12])
+
+first_column = len(split_items[12:24])
+
+second_column = len(split_items[24:36])
+
+third_column = len(split_items[36:48])
+
+forth_column = len(split_items[48:60])
+
+fifth_column = len(split_items[60:72])
+
+sixth_column = len(split_items[72:84])
+
+seventh_column = len(split_items[84:96])
+
+eighth_column = len(split_items[96:108])
+
+ninth_column = len(split_items[108:120])
+
+tenth_column = len(split_items[120:132])
+
+print(tenth_column)
+
+correct_columns = 12
+
+if tenth_column != correct_columns:
+    print("not correct")
+
+else:
+    print("correct")
+
+
+
+
+

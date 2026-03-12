@@ -1,0 +1,97 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+file_path_copy = r"C:\Users\mengw\OneDrive\uknown files\MED_DATA_20060220141441.csv"
+
+open_file3 = open(file_path_copy)
+
+file_contents = open_file3.read()
+
+clean_contents = file_contents.strip()
+
+headings = clean_contents[0:109]
+print(headings)
+
+only_headings = headings
+
+total_headers = []
+
+unused_copys = []
+
+batch_header = only_headings[0:8]
+
+timestamp_header = only_headings[9:18]
+
+reading1_header = only_headings[19:27]
+
+reading2_header = only_headings[28:36]
+
+reading3_header = only_headings[37:45]
+
+reading4_header = only_headings[46:54]
+
+reading5_header = only_headings[55:63]
+
+reading6_header = only_headings[64:72]
+
+reading7_header = only_headings[73:81]
+
+reading8_header = only_headings[82:90]
+
+reading9_header = only_headings[91:99]
+
+reading10_header = only_headings[100:109]
+
+reading11_header = only_headings[100:109]
+
+total_headers = []
+
+unused_copys = []
+
+while True:
+    if (batch_header == ("batch_id") and 
+        timestamp_header == ("timestamp") and 
+        reading1_header == ("reading1") and 
+        reading2_header == ("reading2") and 
+        reading3_header == ("reading3") and
+        reading4_header == ("reading4")):
+        total_headers.append("correct")
+        break
+    else:
+        unused_copys.append("wrong")
+        break
+while True:
+    if (reading5_header == ("reading5") and 
+        reading6_header == ("reading6") and 
+        reading7_header == ("reading7") and 
+        reading8_header == ("reading8") and 
+        reading9_header == ("reading9") and
+        reading10_header == ("reading10")):
+        total_headers.append("correct")
+        break
+    else:
+        unused_copys.append("wrong")
+        break
+
+header_amount = len(total_headers)
+
+
+correct_amount = 2
+
+while True:
+    if header_amount == correct_amount:
+        print("sorter")
+        break
+    else:
+        print("not sorter")
+        break

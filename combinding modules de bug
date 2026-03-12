@@ -1,0 +1,52 @@
+
+
+
+
+
+
+
+
+import os
+import shutil
+import random
+import string
+import time
+
+
+print("please insert folder path")
+while True:
+  folder_path = input()
+  try:
+   if not os.path.isdir(folder_path):
+    raise FileNotFoundError(f"Folder not found: {folder_path}")
+  except FileNotFoundError:
+   print("please input valis file path")
+  else:
+    break
+
+print(f"{folder_path} valid file path")
+
+
+print("please insert folder path for good files")
+while True:
+  good_folder = input()
+  try:
+   if not os.path.isdir(good_folder):
+    raise FileNotFoundError(f"Folder not found: {good_folder}")
+  except FileNotFoundError:
+   print("please input valis file path")
+  else:
+    break
+
+print(f"{good_folder} valid file path")
+
+print("please insert folder path for bad files")
+while True:
+  bad_folder = input()
+  try:
+   if not os.path.isdir(bad_folder):
+    raise FileNotFoundError(f"Folder not found: {bad_folder}")
+  except FileNotFoundError:
+   print("please input valis file path")
+  else:
+    break

@@ -1,0 +1,171 @@
+
+
+
+file_path_copy = r"C:\Users\mengw\OneDrive\uknown files\MED_DATA_20090422113610.csv"
+
+open_file = open(file_path_copy)
+
+
+file_contents = open_file.read()
+
+clean_contents = file_contents.strip()
+
+split_headers = clean_contents.split()
+
+remove_headers = split_headers.pop(0)
+
+rejoin_numbers = " ".join(split_headers)
+
+split_comma = rejoin_numbers.split(",")
+
+
+join_contents = " ".join(split_comma)
+
+
+single_items = join_contents.split()
+
+id_ten = single_items[108]
+
+id_nine = single_items[96]
+
+id_eight = single_items[84]
+
+id_seven = single_items[72]
+
+id_six = single_items[60]
+
+id_five = single_items[48]
+
+id_four = single_items[36]
+
+id_three = single_items[24]
+
+id_two = single_items[12]
+
+id_one = single_items[0]
+
+batch_ids = []
+
+batch_ids.append(id_one)
+batch_ids.append(id_two)
+batch_ids.append(id_three)
+batch_ids.append(id_four)
+batch_ids.append(id_five)
+batch_ids.append(id_six)
+batch_ids.append(id_seven)
+batch_ids.append(id_eight)
+batch_ids.append(id_nine)
+batch_ids.append(id_ten)
+
+no_ids_file_content = []
+only_readings = []
+
+for i in single_items:
+    if (i != id_one and i != id_two and i != id_three and i != id_four and i != id_five and
+            i != id_six and i != id_seven and i != id_eight and i != id_nine and i != id_ten):
+        no_ids_file_content.append(i)
+    elif i == id_one:
+        continue
+    elif i == id_two:
+        continue
+    elif i == id_three:
+        continue
+    elif i == id_four:
+        continue
+    elif i == id_five:
+        continue
+    elif i == id_six:
+        continue
+    elif i == id_seven:
+        continue
+    elif i == id_eight:
+        continue
+    elif i == id_nine:
+        continue
+    elif i == id_ten:
+        continue
+    else:
+        break
+
+time_stamp = no_ids_file_content[0]
+
+for i in no_ids_file_content:
+    if (i != time_stamp):
+        only_readings.append(i)
+    elif i == time_stamp:
+        continue
+    else:
+        break
+
+readings_floats = [float(i) for i in only_readings]
+
+
+incorrect_floats = []
+
+correct_floats = []
+
+
+for i in readings_floats:
+    if i >= 9.9:
+        incorrect_floats.append(i)
+    elif i <= 9.9:
+        correct_floats.append(i)
+    else:
+        break
+while True:
+ if incorrect_floats != []:
+    print("invalid file over 10")
+    break
+ else:
+    print("good under 10")
+    break
+
+
+
+
+
+expected_amount = len(batch_ids)
+
+id_numbers = batch_ids
+
+
+def check_duplicates():
+    total_index = len(id_numbers)
+    remaning_checks = total_index
+
+    current_index = len(id_numbers)
+    switch_index = 1
+    results_of_check = []
+    copy_notused = []
+
+    while True:
+        if current_index != 0 and remaning_checks != 0:
+            current_index = current_index-switch_index
+            current_item = id_numbers[current_index]
+            current_id = current_item
+            remaning_checks = remaning_checks - 1
+            for i in id_numbers:
+                if i != current_id:
+                    copy_notused.append(1)
+                elif i == current_id:
+                    results_of_check.append(0)
+            current_id = None
+        else:
+            break
+    return results_of_check
+
+
+check_duplicates()
+
+result_amount = len(check_duplicates())
+
+while True:
+    if result_amount == expected_amount:
+        print("good")
+        break
+    elif result_amount != expected_amount:
+        print("invald file wrong id")
+        break
+    else:
+        print("error")
+

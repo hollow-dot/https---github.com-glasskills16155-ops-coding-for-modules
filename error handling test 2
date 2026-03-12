@@ -1,0 +1,26 @@
+
+
+
+
+
+
+import os
+import shutil
+import random
+import string
+import time
+
+while True:
+  box = input()
+  try:
+   if not os.path.isdir(box):
+    raise FileNotFoundError(f"Folder not found: {box}")
+  except FileNotFoundError:
+   print("please input valis file path")
+  else:
+    break
+
+
+
+print(box)
+

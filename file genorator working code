@@ -20,7 +20,6 @@ import string
 import time
 folder_path_good = input()
 box = int(input())
-
  
 for i in range(box):
   box60 = box
@@ -256,20 +255,20 @@ for i in range(box):
   
   reguler =  total_number
   un_reguler =  total_number
-  random_missing_C = random.randint(1,60)
+  random_missing_C = random.randint(1,30)
   
 
   split_comma =  un_reguler.split(",")
   join_contents = " ".join(split_comma)
   single_items = join_contents.split()
   random_missing = random.randint(1,10)
-  index_colums = len(single_items)
+  index_colums2 = len(single_items)
 
   for i in range (random_missing):
-       index_colums2 = index_colums
+       index_colums2 = index_colums2 
        random_index = random.randint(1,index_colums2)
        single_items [random_index] = " "
-       index_colums = index_colums - 1
+       index_colums2 = index_colums2 - 1
 
 
   single_items [random_index]
@@ -327,8 +326,6 @@ for i in range(box):
    elif random_missing_C <= 20:
     return reguler
   releasing()
-  
-  print(releasing())
 
   relising_box = releasing()
   

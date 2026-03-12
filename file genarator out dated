@@ -4,10 +4,22 @@
 
 
 
-import csv
 
 
+import os
+import shutil
+import random
+import string
+import time
 
-with open("file.csv","w") as file:
-    file.write("batch_id,timestamp")
-    print("done")
+random_missing = random.randint(1,10)
+print(random_missing)
+single_items = ("i,i,i,i,i,i,i,i")
+
+items = len(single_items)
+
+
+for i in range (random_missing):
+       items = items
+       items = items - 1
+       print(f"{items} index")
