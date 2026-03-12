@@ -9,7 +9,7 @@ import string
 import time
 print("please input folder for mixed files")
 while True:
-  folder_path_unknownfiles = input()
+  folder_path_unknownfiles = input().replace('"', '')
   try:
    if not os.path.isdir(folder_path_unknownfiles):
     raise FileNotFoundError(f"Folder not found: {folder_path_unknownfiles}")

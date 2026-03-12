@@ -6,16 +6,14 @@
 
 
 
+import csv
+from datetime import datetime
 import os
 import shutil
-import random
-import string
-import time
-
 
 print("please insert folder path")
 while True:
-  folder_path = input()
+  folder_path = input().replace('"', '')
   try:
    if not os.path.isdir(folder_path):
     raise FileNotFoundError(f"Folder not found: {folder_path}")
@@ -26,27 +24,51 @@ while True:
 
 print(f"{folder_path} valid file path")
 
+switching_box = []
 
-print("please insert folder path for good files")
-while True:
-  good_folder = input()
+def re_run():
+ print("please insert folder path for good files")
+ while True:
+  good_folder = input().replace('"', '')
   try:
    if not os.path.isdir(good_folder):
     raise FileNotFoundError(f"Folder not found: {good_folder}")
   except FileNotFoundError:
-   print("please input valis file path")
+   print("please input valid file path")
   else:
-    break
+    switching_box.append(good_folder)
+    break  
+  
+ print(f"{good_folder} valid file path")
 
-print(f"{good_folder} valid file path")
-
-print("please insert folder path for bad files")
-while True:
-  bad_folder = input()
+ print("please insert folder path for bad files")
+ while True:
+  bad_folder = input().replace('"', '')
   try:
-   if not os.path.isdir(bad_folder):
-    raise FileNotFoundError(f"Folder not found: {bad_folder}")
+     if not os.path.isdir(bad_folder):
+      raise FileNotFoundError(f"Folder not found: {bad_folder}")
   except FileNotFoundError:
-   print("please input valis file path")
+     print("please input valid file path")
   else:
-    break
+     switching_box.append(bad_folder)
+     break
+   
+  return good_folder and bad_folder 
+re_run()
+
+while True:
+ box45,box44 = switching_box
+ if box45 == box44 :
+  switching_box.clear()
+  print("good and bad path cannot be the same")
+  re_run()
+ else:
+  print("all folder paths are valid")
+  all_good_paths = switching_box
+  break
+ 
+
+path_one = all_good_paths[0]
+
+path_two = all_good_paths[1]
+

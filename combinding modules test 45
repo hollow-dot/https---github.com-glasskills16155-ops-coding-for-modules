@@ -1,0 +1,10 @@
+
+
+
+
+
+
+
+
+folder_path = input().replace('"', '')
+print(folder_path)
