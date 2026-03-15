@@ -1,4 +1,9 @@
-# reads, opens, and spitst the file contents section 1
+
+
+
+
+
+
 
 
 open_file = open(r"not a file path")

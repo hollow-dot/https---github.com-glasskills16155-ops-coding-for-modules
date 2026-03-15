@@ -1,0 +1,72 @@
+
+
+
+
+
+
+
+file_path_copy = r"C:\Users\mengw\OneDrive\coding\combind module test\MED_DATA_20230603140104 correct.csv"
+
+
+open_file = open(file_path_copy)
+
+
+reads_file = open_file.read()
+
+open_file.close()
+
+
+byte0_file = ['']
+
+unknown_byte_file = []
+
+unknown_byte_file.append(reads_file)
+
+print(byte0_file)
+
+while True:
+    if unknown_byte_file == byte0_file:
+     print("invalid")
+     break
+    else:
+     print("good")
+     break
+
+
+
+
+file_path_copy = r"C:\Users\mengw\OneDrive\coding\combind module test\MED_DATA_20230603140104 malfomed.csv"
+
+
+open_file2 = open(file_path_copy)
+
+read_file = open_file2.read()
+
+open_file2.close()
+
+unused_numbers = []
+untold_comma_amount = []
+
+swiching_missing_colums = []
+
+for i in read_file:
+    if i == (','):
+        untold_comma_amount.append(i)
+    elif i != (','):
+        unused_numbers.append(i)
+    else:
+        break
+
+total_commas = len(untold_comma_amount)
+
+while True:
+    if total_commas == 121:
+        print("good")
+        swiching_missing_colums.append("trigger")
+        break
+    elif total_commas != 121:
+        print("invalid")
+        break
+    else:
+        print("error")
+        break

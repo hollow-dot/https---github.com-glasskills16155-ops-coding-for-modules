@@ -1,0 +1,538 @@
+
+
+import csv
+from datetime import datetime
+import os
+import shutil
+from ftplib import FTP
+import ftplib
+
+
+
+while True:
+ ftp = FTP()
+ file_credentials1 = []
+ print("please enter host num,port num,user name, password")
+ print("all seperated by commas")
+ host_portsuser_pass = input()
+ host_portsuser_pass_copy = host_portsuser_pass
+ file_credentials1.append(host_portsuser_pass)
+ join_credentials1 = "".join(file_credentials1)
+ spliting_credentials1 = join_credentials1.split(",")
+ print(spliting_credentials1)
+ try:
+  ftp.connect(spliting_credentials1[0],int(spliting_credentials1[1]))
+  ftp.login(spliting_credentials1[2], spliting_credentials1[3])
+ except ConnectionRefusedError:
+
+   print("invalid credentials")
+ except ftplib.error_perm:
+
+   print("invalid credentials")
+ except IndexError:
+
+   print("invalid credentials")
+ else:
+   break
+
+ 
+print("please select the remote folder path you want to open")
+folder_path = input("")
+folder_path2 = folder_path
+name_only = []
+name_only.append(folder_path2)
+join = "".join(name_only)
+
+split = join.split("/")
+
+relative_path = split[2] 
+absolute_path = os.path.abspath(relative_path)
+
+
+print("please insert folder path")
+while True:
+    folder_path = absolute_path
+    try:
+        if not os.path.isdir(folder_path):
+            raise FileNotFoundError(f"Folder not found: {folder_path}")
+    except FileNotFoundError:
+        print("please input valis file path")
+    else:
+        break
+
+print(f"{folder_path} valid file path")
+
+switching_box2 = []
+
+switching_box = []
+
+def re_run():
+ print("please insert folder path for good files")
+ while True:
+  good_folder = input().replace('"', '')
+  try:
+   if not os.path.isdir(good_folder):
+    raise FileNotFoundError(f"Folder not found: {good_folder}")
+  except FileNotFoundError:
+   print("please input valid file path")
+  else:
+    switching_box.append(good_folder)
+    break  
+  
+ print(f"{good_folder} valid file path")
+ return good_folder 
+re_run()
+
+def re_run2():
+ print("please insert folder path for bad files")
+ while True:
+  bad_folder = input().replace('"', '')
+  try:
+     if not os.path.isdir(bad_folder):
+      raise FileNotFoundError(f"Folder not found: {bad_folder}")
+  except FileNotFoundError:
+     print("please input valid file path")
+  else:
+     switching_box2.append(bad_folder)
+     break
+   
+ return bad_folder 
+re_run2()
+
+
+while True:
+ if switching_box  ==  switching_box2:
+  switching_box.clear()
+  switching_box2.clear()
+  print("good and bad path cannot be the same")
+  re_run()
+  re_run2()
+ else:
+  print("all folder paths are valid")
+  all_good_paths = switching_box
+  break
+
+
+path_one = switching_box[0]
+
+path_two = switching_box2[0]
+
+file_path = os.listdir(f"{folder_path}")
+
+for i in file_path:
+    file_path = os.path.join(folder_path, i)
+
+    file_path_copy = file_path
+
+    file_name = os.path.basename(file_path)
+    result = file_name.split("_")
+    result = result[2]
+    result = result.split(".")
+    result = result[0]
+
+    date = result
+
+    date_no_year = date[0:4]
+
+    year = int(date_no_year)
+
+    date_no_mon = date[4:6]
+
+    month = int(date_no_mon)
+
+    date_no_day = date[6:8]
+
+    day = int(date_no_day)
+
+    date_no_hou = date[8:10]
+
+    hour = int(date_no_hou)
+
+    date_no_min = date[10:12]
+
+    minute = int(date_no_min)
+
+    date_no_sec = date[12:14]
+
+    second = int(date_no_sec)
+
+    good_key = []
+
+    bad_key = []
+
+    if year > 2025 or year < 2000:
+        month = 35
+    else:
+        pass
+
+    try:
+        date_time = datetime(year, + month, + day, + hour, + minute, + second)
+    except ValueError as e:
+        error = e
+        bad_key.append("invalid")
+    else:
+        good_key.append(1)
+
+    open_file = open(file_path_copy)
+
+    reads_file = open_file.read()
+
+    open_file.close()
+
+    byte0_file = ['']
+
+    unknown_byte_file = []
+
+    unknown_byte_file.append(reads_file)
+
+    while True:
+        if unknown_byte_file == byte0_file:
+            bad_key.append("invalid")
+            break
+        else:
+            good_key.append(1)
+            break
+
+    if unknown_byte_file != []:
+        open_file2 = open(file_path_copy)
+
+        read_file = open_file2.read()
+
+        open_file2.close()
+
+        unused_numbers = []
+        untold_comma_amount = []
+
+        unused_num = []
+        swiching_missing_colums = []
+
+        for i in read_file:
+            if i == (','):
+                untold_comma_amount.append(i)
+            elif i != (','):
+                unused_numbers.append(i)
+            else:
+                break
+        
+        total_commas = len(untold_comma_amount)
+
+        while True:
+            if total_commas == 121:
+                good_key.append(1)
+                swiching_missing_colums.append("trigger")
+                break
+            elif total_commas != 121:
+                bad_key.append("invalid")
+                break
+            else:
+                print("error")
+                break
+   
+        if swiching_missing_colums != []:
+            
+            open_file3 = open(file_path_copy)
+
+            file_contents4 = open_file3.read()
+
+            open_file3.close()
+
+            clean_contents = file_contents4.strip()
+
+            split_comma = clean_contents.split(",")
+
+            no_emptystring = [i.strip() for i in split_comma if i.strip()]
+
+            without_headers = " ".join(no_emptystring)
+
+            split_items = without_headers.split()
+
+            header_column = len(split_items[0:12])
+
+            first_column = len(split_items[12:24])
+
+            second_column = len(split_items[24:36])
+
+            third_column = len(split_items[36:48])
+
+            forth_column = len(split_items[48:60])
+
+            fifth_column = len(split_items[60:72])
+
+            sixth_column = len(split_items[72:84])
+
+            seventh_column = len(split_items[84:96])
+
+            eighth_column = len(split_items[96:108])
+
+            ninth_column = len(split_items[108:120])
+
+            tenth_column = len(split_items[120:132])
+
+            correct_columns = 12
+            while True:
+              if tenth_column != correct_columns:
+                bad_key.append("invalid")
+                break
+              else:
+                good_key.append(1)
+                break
+
+        open_file4 = open(file_path_copy)
+
+        file_contents = open_file4.read()
+
+        open_file4.close()
+
+        clean_contents = file_contents.strip()
+
+        headings = clean_contents[0:109]
+
+        only_headings = headings
+
+        total_headers = []
+
+        unused_copys = []
+
+        switching_id = []
+
+        batch_header = only_headings[0:8]
+
+        timestamp_header = only_headings[9:18]
+
+        reading1_header = only_headings[19:27]
+
+        reading2_header = only_headings[28:36]
+
+        reading3_header = only_headings[37:45]
+
+        reading4_header = only_headings[46:54]
+
+        reading5_header = only_headings[55:63]
+
+        reading6_header = only_headings[64:72]
+
+        reading7_header = only_headings[73:81]
+
+        reading8_header = only_headings[82:90]
+
+        reading9_header = only_headings[91:99]
+
+        reading10_header = only_headings[100:109]
+
+        reading11_header = only_headings[100:109]
+
+        total_headers = []
+
+        unused_copys = []
+
+        while True:
+            if (batch_header == ("batch_id") and
+                timestamp_header == ("timestamp") and
+                reading1_header == ("reading1") and
+                reading2_header == ("reading2") and
+                reading3_header == ("reading3") and
+                    reading4_header == ("reading4")):
+                total_headers.append("correct")
+                break
+            else:
+                unused_copys.append("wrong")
+                break
+        while True:
+            if (reading5_header == ("reading5") and
+               reading6_header == ("reading6") and
+               reading7_header == ("reading7") and
+               reading8_header == ("reading8") and
+               reading9_header == ("reading9") and
+               reading10_header == ("reading10")):
+                total_headers.append("correct")
+                break
+            else:
+                unused_copys.append("wrong")
+                break
+
+        header_amount = len(total_headers)
+
+        correct_amount = 2
+
+        while True:
+            if header_amount == correct_amount:
+                good_key.append(1)
+                switching_id.append("good headers")
+                break
+            else:
+                bad_key.append("invalid")
+                break
+        if switching_id == ["good headers"]:
+            open_file5 = open(file_path_copy)
+
+            file_contents = open_file5.read()
+
+            open_file5.close()
+
+            clean_contents = file_contents.strip()
+
+            split_headers = clean_contents.split()
+
+            remove_headers = split_headers.pop(0)
+
+            rejoin_numbers = " ".join(split_headers)
+
+            split_comma = rejoin_numbers.split(",")
+
+
+            join_contents = " ".join(split_comma)
+
+
+            single_items = join_contents.split()
+
+            id_ten = single_items[108]
+
+            id_nine = single_items[96]
+
+            id_eight = single_items[84]
+
+            id_seven = single_items[72]
+
+            id_six = single_items[60]
+
+            id_five = single_items[48]
+
+            id_four = single_items[36]
+
+            id_three = single_items[24]
+
+            id_two = single_items[12]
+
+            id_one = single_items[0]
+
+            batch_ids = []
+
+            batch_ids.append(id_one)
+            batch_ids.append(id_two)
+            batch_ids.append(id_three)
+            batch_ids.append(id_four)
+            batch_ids.append(id_five)
+            batch_ids.append(id_six)
+            batch_ids.append(id_seven)
+            batch_ids.append(id_eight)
+            batch_ids.append(id_nine)
+            batch_ids.append(id_ten)
+
+            no_ids_file_content = []
+            only_readings = []
+
+            for i in single_items:
+                if (i != id_one and i != id_two and i != id_three and i != id_four and i != id_five and
+                    i != id_six and i != id_seven and i != id_eight and i != id_nine and i != id_ten):
+                    no_ids_file_content.append(i)
+                elif i == id_one:
+                     continue
+                elif i == id_two:
+                     continue
+                elif i == id_three:
+                     continue
+                elif i == id_four:
+                     continue
+                elif i == id_five:
+                     continue
+                elif i == id_six:
+                     continue
+                elif i == id_seven:
+                     continue
+                elif i == id_eight:
+                     continue
+                elif i == id_nine:
+                     continue
+                elif i == id_ten:
+                     continue
+                else:
+                  break
+
+                time_stamp = no_ids_file_content[0]
+
+                for i in no_ids_file_content:
+                    if (i != time_stamp):
+                     only_readings.append(i)
+                    elif i == time_stamp:
+                     continue
+                    else:
+                      break
+
+                readings_floats = [float(i) for i in only_readings]
+
+                incorrect_floats = []
+
+                correct_floats = []
+
+
+                for i in readings_floats:
+                     if i >= 9.9:
+                       incorrect_floats.append(i)
+                     elif i <= 9.9:
+                        correct_floats.append(i)
+                     else:
+                        break
+                while True:
+                  if incorrect_floats != []:
+                      bad_key.append("invalid")
+                      break
+                  else:
+                     good_key.append(1)
+                     break
+
+
+                expected_amount = len(batch_ids)
+
+                id_numbers = batch_ids
+
+
+                def check_duplicates():
+                 total_index = len(id_numbers)
+                 remaning_checks = total_index
+
+                 current_index = len(id_numbers)
+                 switch_index = 1
+                 results_of_check = []
+                 copy_notused = []
+
+                 while True:
+                    if current_index != 0 and remaning_checks != 0:
+                      current_index = current_index-switch_index
+                      current_item = id_numbers[current_index]
+                      current_id = current_item
+                      remaning_checks = remaning_checks - 1
+                      for i in id_numbers:
+                         if i != current_id:
+                          copy_notused.append(1)
+                         elif i == current_id:
+                          results_of_check.append(0)
+                      current_id = None
+                    else:
+                      break
+                 return results_of_check
+
+
+                check_duplicates()
+
+                result_amount = len(check_duplicates())
+
+                while True:
+                 if result_amount == expected_amount:
+                     good_key.append(1)
+                     break
+                 elif result_amount != expected_amount:
+                     bad_key.append("invalid")
+                     break
+                 else:
+                   print("error")
+    else:   
+        break
+
+    def moving_files():
+        if bad_key == []:
+            print("good")
+            return shutil.move(file_path_copy, path_one)
+        elif bad_key != []:
+            print("bad")
+            return shutil.move(file_path_copy, path_two)
+    moving_files()

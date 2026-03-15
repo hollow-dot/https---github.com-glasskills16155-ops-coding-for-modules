@@ -1,0 +1,377 @@
+
+
+
+
+import os
+import shutil
+import random
+import string
+import time
+print("please input folder for mixed files")
+while True:
+  folder_path_unknownfiles = input().replace('"', '')
+  try:
+   if not os.path.isdir(folder_path_unknownfiles):
+    raise FileNotFoundError(f"Folder not found: {folder_path_unknownfiles}")
+  except FileNotFoundError:
+   print("please input valid file path")
+  else:
+    break
+
+print("please input amount of mixed files")
+while True:
+  try:
+     box = int(input())
+  except ValueError:
+   print("please input valid integer")
+  else:
+    break
+
+integer = box
+
+for i in range(integer):
+  box60 = integer
+  file_path_rerun = folder_path_unknownfiles
+  switching_between = random.randint(1,30)
+ 
+  year_date = random.randint(2000,2025)
+
+  month = random.randint(1,12)
+
+  day = random.randint(1,31)
+
+  hour = random.randint(1,24)
+
+  minute = random.randint(1,60)
+
+  second = random.randint(1,60)
+
+  combind_date = []
+
+  combind_date.append(year_date)
+  combind_date.append(month)
+  combind_date.append(day)
+  combind_date.append(hour)
+  combind_date.append(minute)
+  combind_date.append(second)
+  box45 = []
+  for i in combind_date:
+   if i < 10:
+    box45.append(f"0{i}")
+   elif i >= 10:
+       box45.append(f"{i}")
+
+  date_2 = "".join(box45)
+
+
+
+  year_not_right = random.randint(2027,2100)
+
+  month_not_right = random.randint(1,100)
+
+  day_not_right = random.randint(1,100)
+
+  hour_not_right = random.randint(1,100)
+
+  minute_not_right = random.randint(1,100)
+
+  second_not_right = random.randint(1,100)
+
+  combind_date_not_right = []
+
+  combind_date_not_right.append(year_not_right)
+  combind_date_not_right.append(month_not_right)
+  combind_date_not_right.append(day_not_right)
+  combind_date_not_right.append(hour_not_right)
+  combind_date_not_right.append(minute_not_right)
+  combind_date_not_right.append(second_not_right)
+  not_in_range = []
+  for i in combind_date_not_right:
+   if i < 10:
+    not_in_range.append(f"0{i}")
+   elif i >= 10:
+       not_in_range.append(f"{i}")
+
+  date_outof_range = "".join(not_in_range)
+
+  def choosing_date():
+     if switching_between > 20:
+      return date_outof_range
+     elif switching_between <= 20:
+        return date_2
+  choosing_date()  
+
+  date_known = (f"MED_DATA_{choosing_date()}.csv")
+
+  random_headers = random.randint(1,40)
+  headers = ("batch_id,timestamp,reading1,reading2,reading3,reading4,reading5,reading6,reading7,reading8,reading9,reading10\n")
+
+  wrong_headers = []
+
+  while True:
+    if random_headers > 20 :
+        headers2 = ("batch_id,timestamp,reading1,reading2,reading3,reading4,reading5,reading6,reading7,reading8,reading9,reading10\n")
+        split_headers = headers2.split(",")
+        
+        for i in split_headers:
+         random_chr_for_head = chr(random.randint(ord('a'), ord('t')))
+         random_chr = chr(random.randint(ord('a'), ord('z')))
+         random_text  = i.replace(random_chr_for_head,random_chr)
+         wrong_headers.append(random_text)
+        break
+    else:
+        break
+
+  joining_headings = ",".join(wrong_headers)
+
+  def relese_headers():
+   if random_headers > 30:
+    return joining_headings
+   elif random_headers <= 30:
+    return headers
+  relese_headers()  
+
+  
+  headers_print = relese_headers() 
+  
+  
+  box =  random.randint(1, 30)
+  box2 =  random.randint(1, 30)
+
+  time_stamp = "14:01:04"
+  trigger = 11
+  trigger2 = 11
+
+  box3 = []
+  box4 = []
+
+
+  for trigger in range(1,101):
+      if trigger != 0 and trigger != 101:
+          b = round(random.uniform(1, 9), 3)
+          box3.append(float(b))
+
+
+  for trigger in range(1,101):
+      if trigger != 0 and trigger != 101:
+          b = round(random.uniform(1, 15), 3)
+          box4.append(float(b))
+
+  while True:
+     if box2 <= 20:
+       b0x5 = box3
+       break
+     elif box2 > 20:
+       b0x5 = box4
+       break
+     else:
+      break
+
+
+  all_floats = ",".join(str(item) for item in b0x5)
+
+  split_list = all_floats.split(",")
+
+  list_one = split_list[0:10]
+
+  list_one = ",".join(str(item) for item in list_one)
+
+  list_two = split_list[10:20]
+
+  list_two = ",".join(str(item) for item in list_two)
+
+  list_three = split_list[20:30]
+
+  list_three = ",".join(str(item) for item in list_three)
+
+  list_four = split_list[30:40]
+
+  list_four = ",".join(str(item) for item in list_four)
+
+  list_five = split_list[40:50]
+
+  list_five = ",".join(str(item) for item in list_five)
+
+  list_six = split_list[50:60]
+
+  list_six = ",".join(str(item) for item in list_six)
+ 
+  list_seven = split_list[60:70]
+
+  list_seven = ",".join(str(item) for item in list_seven)
+
+  list_eight = split_list[70:80]
+
+  list_eight = ",".join(str(item) for item in list_eight)
+
+  list_nine = split_list[80:90]
+
+  list_nine = ",".join(str(item) for item in list_nine )
+
+  list_ten = split_list[90:110]
+
+  list_ten = ",".join(str(item) for item in list_ten)
+
+
+
+
+
+  while True:
+   if box > 20 :
+     id_num = []
+     numbers = 10
+     for numbers in range(1,11):
+      if numbers != 0 and numbers != 11:
+       random_num = random.randint(1, 1000)
+      id_num.append(random_num)
+
+
+     box = (f"{id_num[0]},{time_stamp},{list_one}\n")
+     box2 = (f"{id_num[1]},{time_stamp},{list_two}\n")
+     box3 = (f"{id_num[2]},{time_stamp},{list_three}\n")
+     box4 = (f"{id_num[3]},{time_stamp},{list_four}\n")
+     box5 = (f"{id_num[0]},{time_stamp},{list_five}\n")
+     box6 = (f"{id_num[5]},{time_stamp},{list_six}\n")
+     box7 = (f"{id_num[7]},{time_stamp},{list_seven}\n")
+     box8 = (f"{id_num[7]},{time_stamp},{list_eight}\n")
+     box9 = (f"{id_num[8]},{time_stamp},{list_nine}\n")
+     box10 = (f"{id_num[9]},{time_stamp},{list_ten}\n")
+     total_number = headers_print + box + box2 + box3 + box4 + box5 + box6 + box7 + box8 + box9 + box10
+  
+     break
+   elif box <= 20:
+    id_num = []
+    numbers = 10
+    for numbers in range(1,11):
+      if numbers != 0 and numbers != 11:
+       random_num = random.randint(1, 1000)
+       id_num.append(random_num)
+
+ 
+   box = (f"{id_num[0]},{time_stamp},{list_one}\n")
+   box2 = (f"{id_num[1]},{time_stamp},{list_two}\n")
+   box3 = (f"{id_num[2]},{time_stamp},{list_three}\n")
+   box4 = (f"{id_num[3]},{time_stamp},{list_four}\n")
+   box5 = (f"{id_num[4]},{time_stamp},{list_five}\n")
+   box6 = (f"{id_num[5]},{time_stamp},{list_six}\n")
+   box7 = (f"{id_num[6]},{time_stamp},{list_seven}\n")
+   box8 = (f"{id_num[7]},{time_stamp},{list_eight}\n")
+   box9 = (f"{id_num[8]},{time_stamp},{list_nine}\n")
+   box10 = (f"{id_num[9]},{time_stamp},{list_ten}\n")
+   total_number = headers_print + box + box2 + box3 + box4 + box5 + box6 + box7 + box8 + box9 + box10 
+   break
+  
+  reguler =  total_number
+  un_reguler =  total_number
+  random_missing_C = random.randint(1,30)
+  
+
+  split_comma =  un_reguler.split(",")
+  join_contents = " ".join(split_comma)
+  single_items = join_contents.split()
+  random_missing = random.randint(1,10)
+  index_colums = len(single_items)
+  index_colums3 = index_colums - 1
+  for i in range (random_missing):
+       index_colums2 = index_colums3
+       random_index = random.randint(1,index_colums2)
+       single_items [random_index] = " "
+       index_colums2 = index_colums2 - 1
+
+
+  single_items [random_index]
+  join_row = single_items [0:12]
+  join = ",".join(join_row)
+  
+  help1 = (f"{join}\n")
+  join_row1 = single_items [12:24]
+  join1 = ",".join(join_row1)
+  
+  help2 = (f"{join1}\n")
+  join_row2 = single_items [24:36]
+  join2 = ",".join(join_row2)
+
+  help3 = (f"{join2}\n")
+  join_row3 = single_items [36:48]
+  join_row3 = ",".join(join_row3)
+
+  help4 = (f"{join_row3}\n")
+  join_row4 = single_items [48:60]
+  join_row4 = ",".join(join_row4)
+
+  help5 = (f"{join_row4}\n")
+  join_row5 = single_items [60:72]
+  join_row5 = ",".join(join_row5)
+
+  help6 = (f"{join_row5}\n")
+  join_row6 = single_items [72:84]
+  join_row6 = ",".join(join_row6)
+
+  help7 = (f"{join_row6}\n")
+  join_row7 = single_items [84:96]
+  join_row7 = ",".join(join_row7)
+
+  help8 = (f"{join_row7}\n")
+  join_row8 = single_items [96:108]
+  join_row8 = ",".join(join_row8)
+
+  help9 = (f"{join_row8}\n")
+  join_row9 = single_items [108:120]
+  join_row9 = ",".join(join_row9)
+
+  help10 = (f"{join_row9}\n")
+  join_row10 = single_items [120:132]
+  join_row10 = ",".join(join_row10)
+
+  help11 = (f"{join_row10}\n")
+
+  join_colums = help1 + help2 + help3 + help4 + help5 + help6 + help7 + help8 + help9 + help10 + help11
+  
+
+  def releasing():
+   if random_missing_C > 20:
+      return join_colums
+   elif random_missing_C <= 20:
+    return reguler
+  releasing()
+
+  relising_box = releasing()
+  
+
+  malforemed = releasing()
+
+  non_malforemed = releasing()
+
+  malforemd_50 = random.randint(1,20)
+
+
+
+  random_indexs = random.randint(1,10)
+  tobe_malfomed3 = malforemed
+  random_symboles = len(tobe_malfomed3)
+
+
+  for i in range(random_indexs):
+   random_symboles1 = random_symboles
+   random_comma = random.randint(1,random_symboles1)
+   tobe_malfomed3 = tobe_malfomed3.replace(tobe_malfomed3[random_comma],",")
+   random_symboles1 = random_symboles1 - 1
+
+  while True:
+   if malforemd_50 > 20:
+      test_5 = tobe_malfomed3
+      break
+   elif malforemd_50 <= 20:
+      test_5 = non_malforemed
+      break
+  
+  empty_file = random.randint(1,30)
+
+  if empty_file <= 20:
+   absolute_path = os.path.join(file_path_rerun,date_known)
+   with open(f"{absolute_path}", "w") as file:
+          file.write(test_5)
+  elif empty_file > 20:
+    absolute_path = os.path.join(file_path_rerun,date_known)
+    with open(f"{absolute_path}", "wb") as file:
+          pass

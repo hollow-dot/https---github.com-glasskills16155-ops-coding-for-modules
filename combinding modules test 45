@@ -1,10 +1,139 @@
 
 
+import csv
+from datetime import datetime
+import os
+import shutil
+
+# host = str(input())
+
+# port = int(input())
+
+# username = input()
+
+# password = input()
+
+from ftplib import FTP
+
+ftp = FTP()
+
+should_be = "folde4movingFIL3"
+
+should_be2 = "filezilla moving", "folde4movingFIL3"
+ftp.connect("127.0.0.1", 21)
+ftp.login("filezilla moving", "folde4movingFIL3")
+print("please select the folder ypu want to open")
+folder_path = input("")
+folder_path2 = folder_path
+ftp.cwd(f"{folder_path}")
+
+list_files = ftp.nlst()
+
+
+ftp.quit()
+
+
+for i in list_files:
+     file_path_copy = i
+     print(file_path_copy)
+
+     file_name = list_files
+     result = i.split("_")
+     result = result[2]
+     result = result.split(".")
+     result = result[0]
+
+     date = result
+
+     date_no_year = date[0:4]
+
+     year = int(date_no_year)
+
+     date_no_mon = date[4:6]
+
+     month = int(date_no_mon)
+
+     date_no_day = date[6:8]
+
+     day = int(date_no_day)
+
+     date_no_hou = date[8:10]
+
+     hour = int(date_no_hou)
+
+     date_no_min = date[10:12]
+
+     minute = int(date_no_min)
+
+     date_no_sec = date[12:14]
+
+     second = int(date_no_sec)
+
+     good_key = []
+
+     bad_key = []
+
+     if year > 2025 or year < 2000:
+        month = 35
+     else:
+        pass
+     
+     print(year,  month,  day,  hour,  minute,  second)
+
+     try:
+        date_time = datetime(year, + month, + day, + hour, + minute, + second)
+     except ValueError as e:
+        error = e
+        bad_key.append("invalid")
+     else:
+        good_key.append(1)
+
+     (bad_key, good_key)
+     #reading2 = "".join(f"{folder_path2}/{i}")
+
+     reading = r"C:\Users\mengw\OneDrive\coding\moving mixed files"
+
+
+     file_path = open(reading)
+
+     reading2 = file_path.read()
+
+     file_path.close()
+
+     print(f"{reading2}123")
 
 
 
+'''with open(i,"r") as file:
+          content = file.read()
+          print(content)
+     #reads_file = open_file.read()
+
+     #open_file.close()
 
 
 
-folder_path = input().replace('"', '')
-print(folder_path)
+byte0_file = ['']
+
+     unknown_byte_file = []
+
+     unknown_byte_file.append(reads_file)
+
+     while True:
+        if unknown_byte_file == byte0_file:
+            bad_key.append("invalid")
+            break
+        else:
+            good_key.append(1)
+            break'''
+
+'''reading = r"C:\Users\mengw\OneDrive\coding\moving mixed files\MED_DATA_20171007123544.csv"
+
+file_path = open(reading)
+
+reading2 = file_path.read()
+
+file_path.close()
+
+for i in reading2:
+    print(reading2)'''

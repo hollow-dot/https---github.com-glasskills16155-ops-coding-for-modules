@@ -1,0 +1,14 @@
+import pytest
+from your_module import check_for_invalid_date
+
+def test_invalid_month():
+    file_path = "sensor_data_20241301000000.txt"
+    assert check_for_invalid_date(file_path) == False
+
+def test_invalid_day():
+    file_path = "sensor_data_20240230000000.txt"
+    assert check_for_invalid_date(file_path) == False
+
+def test_valid_date():
+    file_path = "sensor_data_20240228120000.txt"
+    assert check_for_invalid_date(file_path) == True

@@ -1,0 +1,46 @@
+# section 1 reads file name and strips file name of everything but numbers
+
+from datetime import datetime
+import os
+
+file_path = input()
+
+
+def check_for_invalid_date():
+
+    file_name = os.path.basename(file_path)
+    num_date = file_name.split("_")
+    date_part = num_date[2]
+    num_date = date_part.split(".")
+    date = num_date[0]
+    # end of section 1
+
+    # section 2 separates the date in to individual year, month, day, hour, minute, second items
+
+    year = int(date[0:4])
+
+    month = int(date[4:6])
+
+    day = int(date[6:8])
+
+    hour = int(date[8:10])
+
+    minute = int(date[10:12])
+
+    second = int(date[12:14])
+
+    # end of section 2
+
+    # section 3 tells you if the date is invalid or not
+    try:
+        datetime(year, month, day, hour, minute, second)
+    except ValueError:
+        return False
+    else:
+        return True
+
+
+# end of section 3
+
+
+print(check_for_invalid_date())
