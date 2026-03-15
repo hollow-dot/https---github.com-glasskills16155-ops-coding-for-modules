@@ -1,0 +1,32 @@
+
+
+
+
+
+
+file_path = input()
+
+
+def check_empty_file():
+    
+    open_file = open(file_path)
+
+    reads_file = open_file.read()
+
+    open_file.close()
+
+    byte0_file = ['']
+
+    unknown_byte_file = []
+
+    unknown_byte_file.append(reads_file)
+
+    while True:
+        if unknown_byte_file == byte0_file:
+            return True
+            break
+        else:
+            return False
+            break
+
+print(check_empty_file())

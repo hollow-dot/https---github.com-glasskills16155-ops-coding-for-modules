@@ -1,79 +1,62 @@
 
 
+# section 1 reads file name and strips file name of everything but numbers
+
+from datetime import datetime
+import os
+
+file_path = input()
 
 
+def check_for_invalid_date():
+    file_name = os.path.basename(file_path)
+    result = file_name.split("_")
+    result = result[2]
+    result = result.split(".")
+    result = result[0]
+    # end of section 1
 
 
+    # section 2 separates the date in to individual year, month, day, hour, minute, second items
+    date = result
 
+    date_no_year = date[0:4]
 
-open_file = open(r"not a file path")
+    year = int(date_no_year)
 
+    date_no_mon = date[4:6]
 
-file_contents = open_file.read()
+    month = int(date_no_mon)
 
-clean_contents = file_contents.strip()
+    date_no_day = date[6:8]
 
-split_items = clean_contents.split()
+    day = int(date_no_day)
 
-# end of section one
+    date_no_hou = date[8:10]
+ 
+    hour = int(date_no_hou)
 
-# gets rid of batch ID header section 2
+    date_no_min = date[10:12]
 
-header = []
-for i in split_items:
-    if i == 'batch_id':
-        header.append(split_items.pop(0))
-        break
+    minute = int(date_no_min)
 
-expected_amount = len(split_items)
+    date_no_sec = date[12:14]
 
-id_numbers = split_items
+    second = int(date_no_sec)
 
-# end of section 2
-# checks to see if there are any duplicate numbers in batch ID section 3
+   # end of section 2
 
-
-def check_duplicates():
-    total_index = len(id_numbers)
-    remaning_checks = total_index
-
-    current_index = len(id_numbers)
-    switch_index = 1
-    results_of_check = []
-    copy_notused = []
-
-    while True:
-        if current_index != 0 and remaning_checks != 0:
-            current_index = current_index-switch_index
-            current_item = id_numbers[current_index]
-            current_id = current_item
-            remaning_checks = remaning_checks - 1
-            for i in id_numbers:
-                if i != current_id:
-                    copy_notused.append(1)
-                elif i == current_id:
-                    results_of_check.append(0)
-            current_id = None
-        else:
-            break
-    return results_of_check
-
-
-check_duplicates()
+   # section 3 tells you if the date is invalid or not
+    try:
+       date_time = datetime(year, + month, + day, + hour, + minute, + second)
+    except ValueError as e:
+        error = e
+        print(f"warning error has accrued invalid date{e}")
+    else:
+       print("good valid date") 
+check_for_invalid_date()
 
 # end of section 3
-# lets you know if there is a duplicate in the batch ID numbers section 4
 
-result_amount = len(check_duplicates())
 
-while True:
-    if result_amount == expected_amount:
-        print("good")
-        break
-    elif result_amount != expected_amount:
-        print("not good")
-        break
-    else:
-        print("error")
-
-# end of section 4
+print(check_for_invalid_date())
