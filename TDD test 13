@@ -1,0 +1,114 @@
+# reads, opens, and spitst the file contents section 1
+
+file_path = input()
+def check_invalid_ids():
+ open_file = open(file_path)
+
+ file_contents = open_file.read()
+
+ clean_contents = file_contents.strip()
+
+ #split_items = clean_contents.split()
+
+    # end of section one
+
+    # gets rid of batch ID header section 2
+
+ split_headers = clean_contents.split()
+
+ rejoin_numbers = " ".join(split_headers)
+
+ split_comma = rejoin_numbers.split(",")
+
+ join_contents = " ".join(split_comma)
+
+ single_items = join_contents.split()
+ floats = []
+ batch_ids = []
+ number_floats = []
+ header_timesatmep = []
+ for i in single_items:
+    try:
+       float(i)
+       number_floats.append(i)
+    except ValueError:
+       header_timesatmep.append(i)
+    else:
+      pass
+
+
+
+ for i in number_floats:
+        if i == number_floats[0]:
+            batch_ids.append(i)
+        elif i == number_floats[11]:
+            batch_ids.append(i)
+        elif i == number_floats[22]:
+            batch_ids.append(i)
+        elif i == number_floats[33]:
+            batch_ids.append(i)
+        elif i == number_floats[44]:
+            batch_ids.append(i)
+        elif i == number_floats[55]:
+            batch_ids.append(i)
+        elif i == number_floats[66]:
+            batch_ids.append(i)
+        elif i == number_floats[77]:
+            batch_ids.append(i)
+        elif i == number_floats[88]:
+            batch_ids.append(i)
+        elif i == number_floats[99]:
+            batch_ids.append(i)
+        else:
+            floats.append(i)
+
+ expected_amount = len(batch_ids)
+
+
+
+    # end of section 2
+    # checks to see if there are any duplicate numbers in batch ID section 3
+
+ def check_duplicates():
+        total_index = len(batch_ids)
+        remaning_checks = total_index
+
+        current_index = len(batch_ids)
+        switch_index = 1
+        results_of_check = []
+        copy_notused = []
+
+        while True:
+            if current_index != 0 and remaning_checks != 0:
+                current_index = current_index - switch_index
+                current_item = batch_ids[current_index]
+                current_id = current_item
+                remaning_checks = remaning_checks - 1
+                for i in batch_ids:
+                    if i != current_id:
+                        copy_notused.append(1)
+                    elif i == current_id:
+                        results_of_check.append(0)
+                current_id = None
+            else:
+                break
+        return results_of_check
+
+ check_duplicates()
+
+    # end of section 3
+    # lets you know if there is a duplicate in the batch ID numbers section 4
+
+ result_amount = len(check_duplicates())
+
+ while True:
+        if result_amount == expected_amount:
+            return True
+            break
+        elif result_amount != expected_amount:
+            return False
+            break
+
+    # end of section 4'''
+
+print(check_invalid_ids())
