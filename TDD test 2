@@ -1,10 +1,11 @@
 
+file_path = input()
 
 def checking_enmty_file():
 
     # section 1 opens and reads both unkown byte file and 0 byte file
 
-    open_file = open(r"C:\Users\mengw\OneDrive\coding\empty file wrong.csv")
+    open_file = open(file_path)
 
     opens_empty_file = open(
         r"C:\Users\mengw\OneDrive\coding\empty file correct.csv")
@@ -24,10 +25,6 @@ def checking_enmty_file():
 
     byte0_file.append(reads_empty_file)
     # end of section 2
-
-    # section 3 lets you know if a file has 0 bytes or not
-    if unknown_byte_file == byte0_file:
-        print("bad")
-    else:
-        print("good")
-    # end of section 3
+    return unknown_byte_file 
+    
+print(checking_enmty_file())   

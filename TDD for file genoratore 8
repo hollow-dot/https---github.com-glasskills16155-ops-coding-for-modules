@@ -196,29 +196,29 @@ for i in range(row_1):
     row_ten_floats = ",".join(str(item) for item in row_ten_floats)
     # end of section 3
 
-    # section 4 creates a batch id for each colum
+    # section 4 creates a valid batch id 
     box =  random.randint(1, 30)
     while True:
         if box > 20:
-            id_num = []
-            numbers = 10
-            for numbers in range(1, 11):
-              if numbers != 0 and numbers != 11:
-                random_num = random.randint(1, 1000)
-                id_num.append(random_num)
-                print(id_num)
-                # end of section 4
-                row_1 = f"{id_num[0]},{time_stamp},{row_one_floats}\n"
-                row_2 = f"{id_num[1]},{time_stamp},{row_two_floats}\n"
-                row_3 = f"{id_num[2]},{time_stamp},{row_three_floats}\n"
-                row_4 = f"{id_num[3]},{time_stamp},{row_four_floats}\n"
-                row_5 = f"{id_num[0]},{time_stamp},{row_five_floats}\n"
-                row_6 = f"{id_num[5]},{time_stamp},{row_six_floats}\n"
-                row_7 = f"{id_num[7]},{time_stamp},{row_seven_floats}\n"
-                row_8 = f"{id_num[7]},{time_stamp},{row_eight_floats}\n"
-                row_9 = f"{id_num[8]},{time_stamp},{row_nine_floats}\n"
-                row_10 = f"{id_num[9]},{time_stamp},{row_ten_floats}\n"
-                total_columns = (
+         id_num = []
+         numbers = 10
+         for numbers in range(1, 11):
+            if numbers != 0 and numbers != 11:
+             random_num = random.randint(1, 1000)
+            id_num.append(random_num)
+
+    # end of section 4
+         row_1 = f"{id_num[0]},{time_stamp},{row_one_floats}\n"
+         row_2 = f"{id_num[1]},{time_stamp},{row_two_floats}\n"
+         row_3 = f"{id_num[2]},{time_stamp},{row_three_floats}\n"
+         row_4 = f"{id_num[3]},{time_stamp},{row_four_floats}\n"
+         row_5 = f"{id_num[0]},{time_stamp},{row_five_floats}\n"
+         row_6 = f"{id_num[5]},{time_stamp},{row_six_floats}\n"
+         row_7 = f"{id_num[7]},{time_stamp},{row_seven_floats}\n"
+         row_8 = f"{id_num[7]},{time_stamp},{row_eight_floats}\n"
+         row_9 = f"{id_num[8]},{time_stamp},{row_nine_floats}\n"
+         row_10 = f"{id_num[9]},{time_stamp},{row_ten_floats}\n"
+         total_columns = (
                     headers
                     + row_1
                     + row_2
@@ -231,27 +231,28 @@ for i in range(row_1):
                     + row_9
                     + row_10
                 )
-                print(total_columns)
-                break
-              elif box <= 20:
-                id_num = []
-                numbers = 10
-                for numbers in range(1, 11):
-                 if numbers != 0 and numbers != 11:
-                     random_num = random.randint(1, 1000)
-                     id_num.append(random_num)
 
-                     row_1 = f"{id_num[0]},{time_stamp},{row_one_floats}\n"
-                     row_2 = f"{id_num[1]},{time_stamp},{row_two_floats}\n"
-                     row_3 = f"{id_num[2]},{time_stamp},{row_three_floats}\n"
-                     row_4 = f"{id_num[3]},{time_stamp},{row_four_floats}\n"
-                     row_5 = f"{id_num[4]},{time_stamp},{row_five_floats}\n"
-                     row_6 = f"{id_num[5]},{time_stamp},{row_six_floats}\n"
-                     row_7 = f"{id_num[6]},{time_stamp},{row_seven_floats}\n"
-                     row_8 = f"{id_num[7]},{time_stamp},{row_eight_floats}\n"
-                     row_9 = f"{id_num[8]},{time_stamp},{row_nine_floats}\n"
-                     row_10 = f"{id_num[9]},{time_stamp},{row_ten_floats}\n"
-                     total_columns = (
+         break
+    # section 5 creates a invalid batch id
+        elif box <= 20:
+            id_num = []
+            numbers = 10
+            for numbers in range(1, 11):
+              if numbers != 0 and numbers != 11:
+                 random_num = random.randint(1, 1000)
+                 id_num.append(random_num)
+
+            row_1 = f"{id_num[0]},{time_stamp},{row_one_floats}\n"
+            row_2 = f"{id_num[1]},{time_stamp},{row_two_floats}\n"
+            row_3 = f"{id_num[2]},{time_stamp},{row_three_floats}\n"
+            row_4 = f"{id_num[3]},{time_stamp},{row_four_floats}\n"
+            row_5 = f"{id_num[4]},{time_stamp},{row_five_floats}\n"
+            row_6 = f"{id_num[5]},{time_stamp},{row_six_floats}\n"
+            row_7 = f"{id_num[6]},{time_stamp},{row_seven_floats}\n"
+            row_8 = f"{id_num[7]},{time_stamp},{row_eight_floats}\n"
+            row_9 = f"{id_num[8]},{time_stamp},{row_nine_floats}\n"
+            row_10 = f"{id_num[9]},{time_stamp},{row_ten_floats}\n"
+            total_columns = (
                         headers
                         + row_1
                         + row_2
@@ -264,16 +265,18 @@ for i in range(row_1):
                         + row_9
                         + row_10
                     )
-                     print(total_columns)
-                     break
-    # section 3 genorates the file with the randomly selected headers and date
-        if switching_between > 20:
+            break
+    # end of section 5
+    # section 6 genorates the file with the randomly selected headers, date,readings, and batch ids
+    if switching_between > 20:
             date_outof_range
             absolute_path = os.path.join(file_path_rerun, date_known)
             with open(f"{absolute_path}", "w") as file:
                 file.write(total_columns)
-        elif switching_between <= 20:
+    elif switching_between <= 20:
             date_outof_range
             absolute_path = os.path.join(file_path_rerun, date_known)
             with open(f"{absolute_path}", "w") as file:
                 file.write(total_columns)
+     # end of section 6
+

@@ -2,8 +2,8 @@
 file_path = input()
 
 
-def check_invalid_over10():
-    open_file5 = open(file_path)
+
+open_file5 = open(file_path)
 
     file_contents = open_file5.read()
 
@@ -114,15 +114,16 @@ def check_invalid_over10():
             else:
                 break
         # end of section 5
-
+        return no_ids_file_content
         # section 6 lets you know if the readings are good or bad
-        while True:
+        '''while True:
             if incorrect_floats != []:
                 return False
                 break
             else:
                 return True
                 break
+                      return incorrect_float'''
     # end of section 6
 
 

@@ -62,44 +62,16 @@ def choosing_date():
         # section 4 creates the files with randomly selected dates
 
         if switching_between > 20:
-            mixing_dates = date_outof_range
+            file_date = f"MED_DATA_{date_outof_range}.csv"
+            full_file_path = os.path.join(file_path_rerun, file_date)
+            with open(f"{full_file_path}", "w") as file:
+                file.write("place holder")
         elif switching_between <= 20:
             mixing_dates = date_in_range
-            
+            file_date = f"MED_DATA_{mixing_dates}.csv"
+            full_file_path = os.path.join(file_path_rerun, file_date)
+            with open(f"{full_file_path}", "w") as file:
+                file.write("place holder")
 
-        file_date = f"MED_DATA_{mixing_dates}.csv"
-        return file_date
-    choosing_date()
-           
-    # end of section 3
-    # section 1 generates valid an invalid headers
-    random_headers = random.randint(1, 40)
-    headers = "batch_id,timestamp,reading1,reading2,reading3,reading4,reading5,reading6,reading7,reading8,reading9,reading10\n"
 
-    wrong_headers = []
-
-    while True:
-        if random_headers > 20:
-            headers2 = "batch_id,timestamp,reading1,reading2,reading3,reading4,reading5,reading6,reading7,reading8,reading9,reading10\n"
-            split_headers = headers2.split(",")
-
-            for i in split_headers:
-                random_chr_for_head = chr(random.randint(ord("a"), ord("t")))
-                random_chr = chr(random.randint(ord("a"), ord("z")))
-                random_text = i.replace(random_chr_for_head, random_chr)
-                wrong_headers.append(random_text)
-            break
-        else:
-            break
-
-    joining_headings = ",".join(wrong_headers)
-
-    # end of section 1
-
-    def relese_headers():
-        if random_headers > 30:
-            return joining_headings
-        elif random_headers <= 30:
-            return headers
-
-    
+choosing_date()

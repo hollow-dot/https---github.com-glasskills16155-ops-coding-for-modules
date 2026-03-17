@@ -1,17 +1,15 @@
-
 import os
 import random
 
 # section 1 lets you in put a file path and the amount of file you want
 folder_path_unknownfiles = input().replace('"', "")
-box = int(input())
-integer = box
+integer = int(input())
 
 
 # end of section 1
 # section 2 generates valid dates
 def choosing_date():
-    for i in range(integer):
+    for _ in range(integer):
         file_path_rerun = folder_path_unknownfiles
         switching_between = random.randint(1, 30)
 
@@ -74,26 +72,25 @@ def choosing_date():
                 not_in_range.append(f"{i}")
 
         date_outof_range = "".join(not_in_range)
+
         # end of section 3
         # section 4 creates the files with randomly selected dates
-        date_known = f"MED_DATA_{choosing_date()}.csv"
-
-
-
-
-
-
-
-
 
         if switching_between > 20:
-            date_outof_range
-            absolute_path = os.path.join(file_path_rerun, date_known)
-            with open(f"{absolute_path}", "w") as file:
-                file.write(date_outof_range)
+            mixed_dates = date_outof_range
         elif switching_between <= 20:
-            date_outof_range
-            absolute_path = os.path.join(file_path_rerun, date_known)
-            with open(f"{absolute_path}", "w") as file:
-                file.write(date_in_range)
-        # end of section 4
+            mixed_dates = date_in_range
+
+        date_known = f"MED_DATA_{mixed_dates}.csv"
+        print(date_known)
+    if switching_between > 20:
+        absolute_path = os.path.join(file_path_rerun, date_known)
+        with open(f"{absolute_path}", "w") as file:
+            file.write("place holder")
+    elif switching_between <= 20:
+        absolute_path = os.path.join(file_path_rerun, date_known)
+        with open(f"{absolute_path}", "w") as file:
+            file.write("place holder")
+    # end of section 4
+
+choosing_date()

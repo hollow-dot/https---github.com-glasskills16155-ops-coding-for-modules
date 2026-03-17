@@ -1,3 +1,6 @@
+
+
+
 # section 1 lets you in put a file path and the amount of file you want
 import random
 import os
@@ -196,29 +199,29 @@ for i in range(row_1):
     row_ten_floats = ",".join(str(item) for item in row_ten_floats)
     # end of section 3
 
-    # section 4 creates a batch id for each colum
+    # section 4 creates a valid batch id 
     box =  random.randint(1, 30)
     while True:
         if box > 20:
-            id_num = []
-            numbers = 10
-            for numbers in range(1, 11):
-              if numbers != 0 and numbers != 11:
-                random_num = random.randint(1, 1000)
-                id_num.append(random_num)
-                print(id_num)
-                # end of section 4
-                row_1 = f"{id_num[0]},{time_stamp},{row_one_floats}\n"
-                row_2 = f"{id_num[1]},{time_stamp},{row_two_floats}\n"
-                row_3 = f"{id_num[2]},{time_stamp},{row_three_floats}\n"
-                row_4 = f"{id_num[3]},{time_stamp},{row_four_floats}\n"
-                row_5 = f"{id_num[0]},{time_stamp},{row_five_floats}\n"
-                row_6 = f"{id_num[5]},{time_stamp},{row_six_floats}\n"
-                row_7 = f"{id_num[7]},{time_stamp},{row_seven_floats}\n"
-                row_8 = f"{id_num[7]},{time_stamp},{row_eight_floats}\n"
-                row_9 = f"{id_num[8]},{time_stamp},{row_nine_floats}\n"
-                row_10 = f"{id_num[9]},{time_stamp},{row_ten_floats}\n"
-                total_columns = (
+         id_num = []
+         numbers = 10
+         for numbers in range(1, 11):
+            if numbers != 0 and numbers != 11:
+             random_num = random.randint(1, 1000)
+            id_num.append(random_num)
+
+    # end of section 4
+         row_1 = f"{id_num[0]},{time_stamp},{row_one_floats}\n"
+         row_2 = f"{id_num[1]},{time_stamp},{row_two_floats}\n"
+         row_3 = f"{id_num[2]},{time_stamp},{row_three_floats}\n"
+         row_4 = f"{id_num[3]},{time_stamp},{row_four_floats}\n"
+         row_5 = f"{id_num[0]},{time_stamp},{row_five_floats}\n"
+         row_6 = f"{id_num[5]},{time_stamp},{row_six_floats}\n"
+         row_7 = f"{id_num[7]},{time_stamp},{row_seven_floats}\n"
+         row_8 = f"{id_num[7]},{time_stamp},{row_eight_floats}\n"
+         row_9 = f"{id_num[8]},{time_stamp},{row_nine_floats}\n"
+         row_10 = f"{id_num[9]},{time_stamp},{row_ten_floats}\n"
+         total_columns = (
                     headers
                     + row_1
                     + row_2
@@ -231,27 +234,28 @@ for i in range(row_1):
                     + row_9
                     + row_10
                 )
-                print(total_columns)
-                break
-              elif box <= 20:
-                id_num = []
-                numbers = 10
-                for numbers in range(1, 11):
-                 if numbers != 0 and numbers != 11:
-                     random_num = random.randint(1, 1000)
-                     id_num.append(random_num)
 
-                     row_1 = f"{id_num[0]},{time_stamp},{row_one_floats}\n"
-                     row_2 = f"{id_num[1]},{time_stamp},{row_two_floats}\n"
-                     row_3 = f"{id_num[2]},{time_stamp},{row_three_floats}\n"
-                     row_4 = f"{id_num[3]},{time_stamp},{row_four_floats}\n"
-                     row_5 = f"{id_num[4]},{time_stamp},{row_five_floats}\n"
-                     row_6 = f"{id_num[5]},{time_stamp},{row_six_floats}\n"
-                     row_7 = f"{id_num[6]},{time_stamp},{row_seven_floats}\n"
-                     row_8 = f"{id_num[7]},{time_stamp},{row_eight_floats}\n"
-                     row_9 = f"{id_num[8]},{time_stamp},{row_nine_floats}\n"
-                     row_10 = f"{id_num[9]},{time_stamp},{row_ten_floats}\n"
-                     total_columns = (
+         break
+    # section 5 creates a invalid batch id
+        elif box <= 20:
+            id_num = []
+            numbers = 10
+            for numbers in range(1, 11):
+              if numbers != 0 and numbers != 11:
+                 random_num = random.randint(1, 1000)
+                 id_num.append(random_num)
+
+            row_1 = f"{id_num[0]},{time_stamp},{row_one_floats}\n"
+            row_2 = f"{id_num[1]},{time_stamp},{row_two_floats}\n"
+            row_3 = f"{id_num[2]},{time_stamp},{row_three_floats}\n"
+            row_4 = f"{id_num[3]},{time_stamp},{row_four_floats}\n"
+            row_5 = f"{id_num[4]},{time_stamp},{row_five_floats}\n"
+            row_6 = f"{id_num[5]},{time_stamp},{row_six_floats}\n"
+            row_7 = f"{id_num[6]},{time_stamp},{row_seven_floats}\n"
+            row_8 = f"{id_num[7]},{time_stamp},{row_eight_floats}\n"
+            row_9 = f"{id_num[8]},{time_stamp},{row_nine_floats}\n"
+            row_10 = f"{id_num[9]},{time_stamp},{row_ten_floats}\n"
+            total_columns = (
                         headers
                         + row_1
                         + row_2
@@ -264,16 +268,80 @@ for i in range(row_1):
                         + row_9
                         + row_10
                     )
-                     print(total_columns)
-                     break
-    # section 3 genorates the file with the randomly selected headers and date
-        if switching_between > 20:
-            date_outof_range
-            absolute_path = os.path.join(file_path_rerun, date_known)
-            with open(f"{absolute_path}", "w") as file:
-                file.write(total_columns)
-        elif switching_between <= 20:
-            date_outof_range
-            absolute_path = os.path.join(file_path_rerun, date_known)
-            with open(f"{absolute_path}", "w") as file:
-                file.write(total_columns)
+            break
+    # end of section 5
+    # section 1 randomly removes timems and repleces them with emptystrings
+    reguler =  total_columns
+    un_reguler =  total_columns
+    random_missing_items = random.randint(1,30)
+  
+
+    split_comma =  un_reguler.split(",")
+    join_contents = " ".join(split_comma)
+    single_items = join_contents.split()
+    missing_items = random.randint(1,10)
+    row_index = len(single_items)
+    row_index_minus1 = row_index - 1
+    for i in range (missing_items):
+       index_max_limit = row_index_minus1
+       random_index = random.randint(1,index_max_limit)
+       single_items [random_index] = " "
+       index_max_limit = index_max_limit - 1
+    # end of section 1
+    # section 2 seperates and re formats the new data 
+    single_items [random_index]
+    line_1 = single_items [0:12]
+    join_line_1 = ",".join(line_1)
+  
+    line_1_newline = (f"{join_line_1}\n")
+    line_2 = single_items [12:24]
+    join_line_2 = ",".join(line_2)
+  
+    line_2_newline = (f"{join_line_2}\n")
+    line_3 = single_items [24:36]
+    join_line_3 = ",".join(line_3)
+
+    line_3_newline = (f"{join_line_3}\n")
+    line_4 = single_items [36:48]
+    line_4 = ",".join(line_4)
+
+    line_4_newline = (f"{line_4}\n")
+    line_5 = single_items [48:60]
+    line_5 = ",".join(line_5)
+
+    line_5_newline = (f"{line_5}\n")
+    line_6 = single_items [60:72]
+    line_6 = ",".join(line_6)
+
+    line_6_newline = (f"{line_6}\n")
+    line_7 = single_items [72:84]
+    line_7 = ",".join(line_7)
+
+    line_7_newline = (f"{line_7}\n")
+    line_8 = single_items [84:96]
+    line_8 = ",".join(line_8)
+
+    line_8_newline = (f"{line_8}\n")
+    line_9 = single_items [96:108]
+    line_9 = ",".join(line_9)
+
+    line_9_newline = (f"{line_9}\n")
+    line_10 = single_items [108:120]
+    line_10 = ",".join(line_10)
+
+    line_10_newline = (f"{line_10}\n")
+    line_11 = single_items [120:132]
+    line_11 = ",".join(line_11)
+
+    line_11_newline = (f"{line_11}\n")
+
+    join_colums = line_1_newline + line_2_newline + line_3_newline + line_4_newline + line_5_newline +  line_6_newline + line_7_newline + line_8_newline + line_9_newline + line_10_newline + line_11_newline
+    # end of section 2
+    # section 3 randomly determines whether or not to use the new data 
+    #
+    def releasing():
+     if random_missing_items > 20:
+        return join_colums
+     elif random_missing_items <= 20:
+        return reguler
+    releasing()

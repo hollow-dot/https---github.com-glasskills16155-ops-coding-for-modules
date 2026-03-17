@@ -10,7 +10,7 @@ integer = box
 # end of section 1
 # section 2 genorates valid dates
 def choosing_date():
-    for i in range(integer):
+    for _ in range(integer):
         file_path_rerun = folder_path_unknownfiles
         switching_between = random.randint(1, 30)
 
@@ -43,58 +43,6 @@ def choosing_date():
                 all_invalid_date.append(f"{i}")
 
         date_in_range = "".join(all_invalid_date)
+        print(date_in_range)
         # end of section 2
-        # section 3 genorates invalid dates
-        year_not_right = random.randint(2027, 2100)
-
-        month_not_right = random.randint(1, 100)
-
-        day_not_right = random.randint(1, 100)
-
-        hour_not_right = random.randint(1, 100)
-
-        minute_not_right = random.randint(1, 100)
-
-        second_not_right = random.randint(1, 100)
-
-        combind_date_not_right = []
-
-        combind_date_not_right.append(year_not_right)
-        combind_date_not_right.append(month_not_right)
-        combind_date_not_right.append(day_not_right)
-        combind_date_not_right.append(hour_not_right)
-        combind_date_not_right.append(minute_not_right)
-        combind_date_not_right.append(second_not_right)
-        not_in_range = []
-        for i in combind_date_not_right:
-            if i < 10:
-                not_in_range.append(f"0{i}")
-            elif i >= 10:
-                not_in_range.append(f"{i}")
-
-        date_outof_range = "".join(not_in_range)
-        # end of section 3
-        # section 4 creates the files with randomly selected dates
-        date_known = f"MED_DATA_{choosing_date()}.csv"
-
-
-
-
-
-
-
-
-
-
-
-        if switching_between > 20:
-            date_outof_range
-            absolute_path = os.path.join(file_path_rerun, date_known)
-            with open(f"{absolute_path}", "w") as file:
-                file.write(date_outof_range)
-        elif switching_between <= 20:
-            date_outof_range
-            absolute_path = os.path.join(file_path_rerun, date_known)
-            with open(f"{absolute_path}", "w") as file:
-                file.write(date_in_range)
-        # end of section 4
+choosing_date()        

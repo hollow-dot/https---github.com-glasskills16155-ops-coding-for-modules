@@ -1,5 +1,3 @@
-
-
 # section 1 reads file name and strips file name of everything but numbers
 
 from datetime import datetime
@@ -48,12 +46,11 @@ def check_for_invalid_date():
 
    # section 3 tells you if the date is invalid or not
     try:
-       date_time = datetime(year, + month, + day, + hour, + minute, + second)
-    except ValueError as e:
-        error = e
-        print(f"warning error has accrued invalid date{e}")
+       datetime(year, + month, + day, + hour, + minute, + second)
+    except ValueError :
+        return False
     else:
-       print("good valid date") 
+       return True
 check_for_invalid_date()
 
 # end of section 3
