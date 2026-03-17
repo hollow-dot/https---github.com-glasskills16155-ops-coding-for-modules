@@ -1,5 +1,7 @@
 
 
+
+
 import os
 import random
 
@@ -177,28 +179,40 @@ def choosing_date_header():
        # end of section 3
 
        # section 4 creates valid and invalid batch id 
-        box =  random.randint(1, 30)
-        while True:
-            if box > 20:
-             id_num = []
-             numbers = 10
-             for numbers in range(1, 11):
-              if numbers != 0 and numbers != 11:
-               random_num = random.randint(1, 1000)
-               id_num.append(random_num)
-
-             # end of section 4
-             row_1 = f"{id_num[0]},{time_stamp},{row_one_floats}\n"
-             row_2 = f"{id_num[1]},{time_stamp},{row_two_floats}\n"
-             row_3 = f"{id_num[2]},{time_stamp},{row_three_floats}\n"
-             row_4 = f"{id_num[3]},{time_stamp},{row_four_floats}\n"
-             row_5 = f"{id_num[0]},{time_stamp},{row_five_floats}\n"
-             row_6 = f"{id_num[5]},{time_stamp},{row_six_floats}\n"
-             row_7 = f"{id_num[7]},{time_stamp},{row_seven_floats}\n"
-             row_8 = f"{id_num[7]},{time_stamp},{row_eight_floats}\n"
-             row_9 = f"{id_num[8]},{time_stamp},{row_nine_floats}\n"
-             row_10 = f"{id_num[9]},{time_stamp},{row_ten_floats}\n"
-             total_columns = (
+        box =  random.randint(1, 40)
+    
+        id_num = []
+        numbers = 10
+        for numbers in range(1, 11):
+          if numbers != 0 and numbers != 11:
+             random_num = random.randint(1, 1000)
+             id_num.append(random_num)
+    
+    
+        index = []   
+        for item in  range(0,10):
+           index.append(item)
+        wrong_index = []    
+        for item in  range(0,10):
+           wrong_index.append(random.randint(0,9)and random.randint(0, 9))
+   
+        if box > 20 :
+           i = wrong_index
+        elif box <= 20:
+          i = index    
+     # end of section 4
+     # section 5 formats all previse date in to a csv structure
+        row_1 = f"{id_num[i[0]]},{time_stamp},{row_one_floats}\n"
+        row_2 = f"{id_num[i[1]]},{time_stamp},{row_two_floats}\n"
+        row_3 = f"{id_num[i[2]]},{time_stamp},{row_three_floats}\n"
+        row_4 = f"{id_num[i[3]]},{time_stamp},{row_four_floats}\n"
+        row_5 = f"{id_num[i[4]]},{time_stamp},{row_five_floats}\n"
+        row_6 = f"{id_num[i[5]]},{time_stamp},{row_six_floats}\n"
+        row_7 = f"{id_num[i[6]]},{time_stamp},{row_seven_floats}\n"
+        row_8 = f"{id_num[i[7]]},{time_stamp},{row_eight_floats}\n"
+        row_9 = f"{id_num[i[8]]},{time_stamp},{row_nine_floats}\n"
+        row_10 = f"{id_num[i[9]]},{time_stamp},{row_ten_floats}\n"
+        total_columns = (
                     headers
                     + row_1
                     + row_2
@@ -211,45 +225,6 @@ def choosing_date_header():
                     + row_9
                     + row_10
                 )
-
-             break
-    # section 5 creates a invalid batch id
-            elif box <= 20:
-              id_num = []
-              numbers = 10
-              for numbers in range(1, 11):
-               if numbers != 0 and numbers != 11:
-                 random_num = random.randint(1, 1000)
-                 id_num.append(random_num)
-
-              row_1 = f"{id_num[0]},{time_stamp},{row_one_floats}\n"
-              row_2 = f"{id_num[1]},{time_stamp},{row_two_floats}\n"
-              row_3 = f"{id_num[2]},{time_stamp},{row_three_floats}\n"
-              row_4 = f"{id_num[3]},{time_stamp},{row_four_floats}\n"
-              row_5 = f"{id_num[4]},{time_stamp},{row_five_floats}\n"
-              row_6 = f"{id_num[5]},{time_stamp},{row_six_floats}\n"
-              row_7 = f"{id_num[6]},{time_stamp},{row_seven_floats}\n"
-              row_8 = f"{id_num[7]},{time_stamp},{row_eight_floats}\n"
-              row_9 = f"{id_num[8]},{time_stamp},{row_nine_floats}\n"
-              row_10 = f"{id_num[9]},{time_stamp},{row_ten_floats}\n"
-              total_columns = (
-                        headers
-                        + row_1
-                        + row_2
-                        + row_3
-                        + row_4
-                        + row_5
-                        + row_6
-                        + row_7
-                        + row_8
-                        + row_9
-                        + row_10
-                    )
-            break
-    # end of section 5
-    # section 1 randomly removes timems and repleces them with emptystrings
-        reguler =  total_columns
-        un_reguler =  total_columns
      # end of section 5
      # section 6 creates files with randomly selected date
         if switching_between > 20:

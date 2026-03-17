@@ -93,21 +93,11 @@ def choosing_date_header():
         # end of section 1
 
        # section 2 creates files with randomly selected dates and headers
-        if random_headers > 30:
+        if random_headers > 20:
          mixed_headers = joining_headings
-        elif random_headers <= 30:
+        elif random_headers <= 20:
          mixed_headers = headers
 
-        if switching_between > 20:
-            date_outof_range
-            absolute_path = os.path.join(file_path_rerun, file_date)
-            with open(f"{absolute_path}", "w") as file:
-                file.write(mixed_headers)
-        elif switching_between <= 20:
-            date_outof_range
-            absolute_path = os.path.join(file_path_rerun, file_date)
-            with open(f"{absolute_path}", "w") as file:
-                file.write(mixed_headers)
-       # end of section 2
+        print(mixed_headers)
 
 choosing_date_header()

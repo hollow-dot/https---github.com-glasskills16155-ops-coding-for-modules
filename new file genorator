@@ -1,5 +1,3 @@
-
-
 import os
 import random
 
@@ -11,6 +9,7 @@ folder_path_unknownfiles = input().replace('"', "")
 def choosing_date_header():
     box = int(input())
     for i in range(box):
+        print(i)
         file_path_rerun = folder_path_unknownfiles
         switching_between = random.randint(1, 30)
 
@@ -105,17 +104,17 @@ def choosing_date_header():
         switching_floats = random.randint(1, 30)
 
         time_stamp = "14:01:04"
-        max_batch_number = 11
+        colum_num_valid_flo = 11
 
         valid_floats = []
         invalid_floats = []
-        for max_batch_number in range(1, 101):
-            if max_batch_number != 0 and max_batch_number != 101:
+        for colum_num_valid_flo in range(1, 101):
+            if colum_num_valid_flo != 0 and colum_num_valid_flo != 101:
                floats = round(random.uniform(1, 9), 3)
                valid_floats.append(float(floats))
 
-        for max_batch_number in range(1, 101):
-            if max_batch_number != 0 and max_batch_number != 101:
+        for colum_num_valid_flo in range(1, 101):
+            if colum_num_valid_flo != 0 and colum_num_valid_flo != 101:
                floats = round(random.uniform(1, 15), 3)
                invalid_floats.append(float(floats))
       # end of section 1
@@ -176,29 +175,40 @@ def choosing_date_header():
         row_ten_floats = ",".join(str(item) for item in row_ten_floats)
        # end of section 3
 
-       # section 4 creates valid and invalid batch id 
-        box =  random.randint(1, 30)
-        while True:
-            if box > 20:
-             id_num = []
-             numbers = 10
-             for numbers in range(1, 11):
-              if numbers != 0 and numbers != 11:
-               random_num = random.randint(1, 1000)
-               id_num.append(random_num)
-
-             # end of section 4
-             row_1 = f"{id_num[0]},{time_stamp},{row_one_floats}\n"
-             row_2 = f"{id_num[1]},{time_stamp},{row_two_floats}\n"
-             row_3 = f"{id_num[2]},{time_stamp},{row_three_floats}\n"
-             row_4 = f"{id_num[3]},{time_stamp},{row_four_floats}\n"
-             row_5 = f"{id_num[0]},{time_stamp},{row_five_floats}\n"
-             row_6 = f"{id_num[5]},{time_stamp},{row_six_floats}\n"
-             row_7 = f"{id_num[7]},{time_stamp},{row_seven_floats}\n"
-             row_8 = f"{id_num[7]},{time_stamp},{row_eight_floats}\n"
-             row_9 = f"{id_num[8]},{time_stamp},{row_nine_floats}\n"
-             row_10 = f"{id_num[9]},{time_stamp},{row_ten_floats}\n"
-             total_columns = (
+       # section 4 creates a valid batch id 
+        box =  random.randint(1, 40)
+    
+        id_num = []
+        numbers = 10
+        for numbers in range(1, 11):
+          if numbers != 0 and numbers != 11:
+             random_num = random.randint(1, 1000)
+             id_num.append(random_num)
+    
+    
+        index = []   
+        for item in  range(0,10):
+           index.append(item)
+        wrong_index = []    
+        for item in  range(0,10):
+           wrong_index.append(random.randint(0,9)and random.randint(0, 9))
+   
+        if box > 20 :
+           i = wrong_index
+        elif box <= 20:
+          i = index    
+     # end of section 4
+        row_1 = f"{id_num[i[0]]},{time_stamp},{row_one_floats}\n"
+        row_2 = f"{id_num[i[1]]},{time_stamp},{row_two_floats}\n"
+        row_3 = f"{id_num[i[2]]},{time_stamp},{row_three_floats}\n"
+        row_4 = f"{id_num[i[3]]},{time_stamp},{row_four_floats}\n"
+        row_5 = f"{id_num[i[4]]},{time_stamp},{row_five_floats}\n"
+        row_6 = f"{id_num[i[5]]},{time_stamp},{row_six_floats}\n"
+        row_7 = f"{id_num[i[6]]},{time_stamp},{row_seven_floats}\n"
+        row_8 = f"{id_num[i[7]]},{time_stamp},{row_eight_floats}\n"
+        row_9 = f"{id_num[i[8]]},{time_stamp},{row_nine_floats}\n"
+        row_10 = f"{id_num[i[9]]},{time_stamp},{row_ten_floats}\n"
+        total_columns = (
                     headers
                     + row_1
                     + row_2
@@ -211,56 +221,73 @@ def choosing_date_header():
                     + row_9
                     + row_10
                 )
-
-             break
-    # section 5 creates a invalid batch id
-            elif box <= 20:
-              id_num = []
-              numbers = 10
-              for numbers in range(1, 11):
-               if numbers != 0 and numbers != 11:
-                 random_num = random.randint(1, 1000)
-                 id_num.append(random_num)
-
-              row_1 = f"{id_num[0]},{time_stamp},{row_one_floats}\n"
-              row_2 = f"{id_num[1]},{time_stamp},{row_two_floats}\n"
-              row_3 = f"{id_num[2]},{time_stamp},{row_three_floats}\n"
-              row_4 = f"{id_num[3]},{time_stamp},{row_four_floats}\n"
-              row_5 = f"{id_num[4]},{time_stamp},{row_five_floats}\n"
-              row_6 = f"{id_num[5]},{time_stamp},{row_six_floats}\n"
-              row_7 = f"{id_num[6]},{time_stamp},{row_seven_floats}\n"
-              row_8 = f"{id_num[7]},{time_stamp},{row_eight_floats}\n"
-              row_9 = f"{id_num[8]},{time_stamp},{row_nine_floats}\n"
-              row_10 = f"{id_num[9]},{time_stamp},{row_ten_floats}\n"
-              total_columns = (
-                        headers
-                        + row_1
-                        + row_2
-                        + row_3
-                        + row_4
-                        + row_5
-                        + row_6
-                        + row_7
-                        + row_8
-                        + row_9
-                        + row_10
-                    )
-            break
-    # end of section 5
-    # section 1 randomly removes timems and repleces them with emptystrings
+     # end of section 5
+     # section 1 randomly removes timems and repleces them with emptystrings
         reguler =  total_columns
         un_reguler =  total_columns
-     # end of section 5
-     # section 6 creates files with randomly selected date
-        if switching_between > 20:
-            file_date = f"MED_DATA_{date_outof_range}.csv"
-            full_file_path = os.path.join(file_path_rerun, file_date)
-            with open(f"{full_file_path}", "w") as file:
-                file.write(total_columns)
-        elif switching_between <= 20:
-            mixing_dates = date_in_range
-            file_date = f"MED_DATA_{mixing_dates}.csv"
-            full_file_path = os.path.join(file_path_rerun, file_date)
-            with open(f"{full_file_path}", "w") as file:
-                file.write(total_columns)
+        random_missing_items = random.randint(1,30)
+  
+
+        split_comma =  un_reguler.split(",")
+        join_contents = " ".join(split_comma)
+        single_items = join_contents.split()
+        missing_items = random.randint(1,10)
+        row_index = len(single_items)
+        row_index_minus1 = row_index - 1
+        for i in range (missing_items):
+            index_max_limit = row_index_minus1
+            random_index = random.randint(1,index_max_limit)
+            single_items [random_index] = " "
+            index_max_limit = index_max_limit - 1
+     # end of section 1
+     # section 2 seperates and re formats the new data 
+        single_items [random_index]
+        line_1 = single_items [0:12]
+        join_line_1 = ",".join(line_1)
+  
+        line_1_newline = (f"{join_line_1}\n")
+        line_2 = single_items [12:24]
+        join_line_2 = ",".join(line_2)
+  
+        line_2_newline = (f"{join_line_2}\n")
+        line_3 = single_items [24:36]
+        join_line_3 = ",".join(line_3)
+
+        line_3_newline = (f"{join_line_3}\n")
+        line_4 = single_items [36:48]
+        line_4 = ",".join(line_4)
+
+        line_4_newline = (f"{line_4}\n")
+        line_5 = single_items [48:60]
+        line_5 = ",".join(line_5)
+
+        line_5_newline = (f"{line_5}\n")
+        line_6 = single_items [60:72]
+        line_6 = ",".join(line_6)
+
+        line_6_newline = (f"{line_6}\n")
+        line_7 = single_items [72:84]
+        line_7 = ",".join(line_7)
+
+        line_7_newline = (f"{line_7}\n")
+        line_8 = single_items [84:96]
+        line_8 = ",".join(line_8)
+
+        line_8_newline = (f"{line_8}\n")
+        line_9 = single_items [96:108]
+        line_9 = ",".join(line_9)
+
+        line_9_newline = (f"{line_9}\n")
+        line_10 = single_items [108:120]
+        line_10 = ",".join(line_10)
+
+        line_10_newline = (f"{line_10}\n")
+        line_11 = single_items [120:132]
+        line_11 = ",".join(line_11)
+
+        line_11_newline = (f"{line_11}\n")
+
+        join_colums = line_1_newline + line_2_newline + line_3_newline + line_4_newline + line_5_newline +  line_6_newline + line_7_newline + line_8_newline + line_9_newline + line_10_newline + line_11_newline
+
+
 choosing_date_header()
