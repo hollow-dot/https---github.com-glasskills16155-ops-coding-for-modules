@@ -85,7 +85,7 @@ def choosing_date_header():
         file_date = f"MED_DATA_{mixing_dates}.csv"
         # end of section 4
         # section 5 genorates invalid headers
-        random_headers = random.randint(1, 40)
+        random_headers = random.randint(1, 30)
         headers = "batch_id,timestamp,reading1,reading2,reading3,reading4,reading5,reading6,reading7,reading8,reading9,reading10\n"
 
         wrong_headers = []
@@ -192,7 +192,7 @@ def choosing_date_header():
         # end of section 9
 
         # section 10 creates a valid batch id
-        box = random.randint(1, 40)
+        box = random.randint(1, 30)
 
         id_num = []
         numbers = 10
@@ -323,7 +323,7 @@ def choosing_date_header():
         # end of section 12
         # section 13 randomly turns items in to commas
         non_malforemed = mix_missing_rows
-        malforemd_50 = random.randint(1, 40)
+        malforemd_50 = random.randint(1, 30)
 
         random_indexs = random.randint(1, 10)
         malfomed_data = mix_missing_rows

@@ -1,27 +1,33 @@
+
+
+
+
+
+
+
 from datetime import datetime
 import os
 import shutil
 from ftplib import FTP
 import ftplib
 
+print("please insert folder path")
+while True:
+    folder_path = input().replace('"', "")
+    try:
+        if not os.path.isdir(folder_path):
+            raise FileNotFoundError(f"Folder not found: {folder_path}")
+    except FileNotFoundError:
+        print("please input valid file path")
+    else:
+        break
+
+print(f"{folder_path} valid file path")
 
 def check_for_invalid_date():
-    print("please insert folder path")
-    while True:
-        folder_path = input().replace('"', "")
-        try:
-            if not os.path.isdir(folder_path):
-                raise FileNotFoundError(f"Folder not found: {folder_path}")
-        except FileNotFoundError:
-            print("please input valid file path")
-        else:
-            break
-
-    print(f"{folder_path} valid file path")
-
-    file_path = os.listdir(f"{folder_path}")
+ file_path = os.listdir(f"{folder_path}")
   
-    for i in file_path:
+ for i in file_path:
         file_path = os.path.join(folder_path, i)
         file_path_copy = file_path
         # section 1 reads file name and strips file name of everything but numbers
@@ -53,13 +59,12 @@ def check_for_invalid_date():
         try:
             datetime(year, month, day, hour, minute, second)
         except ValueError:
-            bad_key.append("invalid")
+            bad_key.append("invalid wrong date")
         else:
             pass
         # end of section 3
         # section 1 opens and reads the file
-
-        open_file = open(file_path_copy)
+        open_file = open(file_path)
 
         reads_file = open_file.read()
 
@@ -73,26 +78,29 @@ def check_for_invalid_date():
         unknown_byte_file.append(reads_file)
         # end of section 2
         # section 3 lets you know if the file is empty or not
+        not_empty = []
         while True:
             if unknown_byte_file == byte0_file:
-                bad_key.append("invalid")
+                bad_key.append("invalid empty")
                 break
             else:
                 not_empty.append("trigger")
                 break
         # end of section 3
-        if unknown_byte_file != []:
+
+        if  not_empty == ['trigger']:
             # section 1 opens and reads the file
             open_file2 = open(file_path_copy)
 
             read_file = open_file2.read()
-
+            
             open_file2.close()
             # end of section 1
             # section 2 appends the commas of the file to a list
             comma_amount = []
             unused_numbers = []
             swiching_missing_colums = []
+
             for i in read_file:
                 if i == (","):
                     comma_amount.append(i)
@@ -103,26 +111,62 @@ def check_for_invalid_date():
             # end of section 2
             # section 3 tells you if the file is malformed or not
             total_commas = len(comma_amount)
-            
             while True:
                 if total_commas == 121:
-                    pass
-                elif total_commas != 121:
-                    bad_key.append("invalid")
+                    swiching_missing_colums.append("trigger 1")
                     break
-            # end of section 2
-            if bad_key != []:
+                elif total_commas != 121:
+                    bad_key.append("invalid malformed")
+                    break  
+            if swiching_missing_colums == ['trigger 1']:
+            # section 1 opens,and strips the file of whitespaces
+              open_file3 = open(file_path_copy)
+
+              file_contents4 = open_file3.read()
+
+              open_file3.close()
+              clean_contents = file_contents4.strip()
+             # end of section 1
+
+             # section 3 splits the contents by cammos and strips it of emptystrings
+              split_comma = clean_contents.split(",")
+
+              no_emptystring = [i.strip() for i in split_comma if i.strip()]
+
+              without_headers = " ".join(no_emptystring)
+
+              split_items = without_headers.split()
+             # end of section 3
+
+             # section 4 determines if there is any items missing
+              tenth_column = len(split_items[120:132])
+             # end of section 4
+
+             # section 5 lets you know if there is anything missing
+              correct_columns = 12
+              no_missing_items = []
+              while True:
+                  if tenth_column != correct_columns:
+                     bad_key.append("invalid missing colums")
+                     break
+                  else:
+                    no_missing_items.append('trigger 2')
+                    break
+             # end of section 5
+              if no_missing_items == ['trigger 2']:
                 open_file4 = open(file_path_copy)
-                
+                   
                 file_contents = open_file4.read()
-                open_file4.close()
                 
+                open_file4.close()
+
                 clean_contents = file_contents.strip()
 
                 headings = clean_contents[0:109]
+
                 only_headings = headings
 
-                
+                total_headers = []
 
                 batch_header = only_headings[0:8]
 
@@ -147,7 +191,7 @@ def check_for_invalid_date():
                 reading9_header = only_headings[91:99]
 
                 reading10_header = only_headings[100:109]
-
+                
                 # end of section 1
                 # section 2 separates each header into there own variable
                 total_headers = []
@@ -181,58 +225,61 @@ def check_for_invalid_date():
                     else:
                         while_trigger.append("wrong")
                         break
-                
+                     
                 header_amount = len(total_headers)
-                
+
                 switching_id = []
                 # end of section 3
                 # section 4 tells you if all headers are correct in the file
-                '''while True:
-                   if header_amount == 2:
-                     switching_id.append("good headers")
-                     break
-                   elif header_amount != 2:
-                     bad_key.append("invalid")
-                     break                 
-                if switching_id == ["good headers"]:
-                    # section 1 opens,and strips the file of whitespaces
-                    open_file5 = open(file_path_copy)
+                correct_amount = 2
 
-                    file_contents = open_file5.read()
+                while True:
+                    if header_amount == correct_amount:
+                        #switching_id.append("good headers")
+                        pass
+                        break
+                    else:
+                        bad_key.append("invalid headers")
+                        pass
+                        break
+                    
+                open_file5 = open(file_path_copy)
 
-                    open_file5.close()
+                file_contents = open_file5.read()
 
-                    clean_contents = file_contents.strip()
-                    # end of section 1
+                open_file5.close()
+
+                clean_contents = file_contents.strip()
+               # end of section 1
                     # section 2 splites each item indeviguley and removes \n
-                    split_headers = clean_contents.split()
+                split_headers = clean_contents.split()
 
-                    rejoin_numbers = " ".join(split_headers)
+                rejoin_numbers = " ".join(split_headers)
 
-                    split_comma = rejoin_numbers.split(",")
+                split_comma = rejoin_numbers.split(",")
 
-                    join_contents = " ".join(split_comma)
+                join_contents = " ".join(split_comma)
 
-                    single_items = join_contents.split()
+                single_items = join_contents.split()
                     # end of section 2
 
                     # section 3 gets rid of batch ids,headers, and timestamps
 
-                    readings = []
-                    non_readings = []
+                readings = []
+                non_readings = []
 
-                    for i in single_items:
-                        try:
-                            float(i)
-                            readings.append(i)
-                        except ValueError:
+                for i in single_items:
+                     try:
+                      float(i)
+                      readings.append(i)
+                     except ValueError:
                             non_readings.append(i)
-                        else:
-                            pass
+                     else:
+                        pass
 
-                    floats = []
-                    batch_ids = []
-                    for i in readings:
+                floats = []
+                batch_ids = []
+                for i in readings:
                         if i == readings[0]:
                             batch_ids.append(i)
                         elif i == readings[11]:
@@ -257,12 +304,12 @@ def check_for_invalid_date():
                             floats.append(i)
                     # end of section 3
                     # turns the strings in to floats and sorts valid and invalid floats
-                    readings_floats = [float(i) for i in floats]
+                readings_floats = [float(i) for i in floats]
 
-                    incorrect_floats = []
+                incorrect_floats = []
 
-                    correct_floats = []
-                    for i in readings_floats:
+                correct_floats = []
+                for i in readings_floats:
                         if i >= 9.9:
                             incorrect_floats.append(i)
                         elif i < 9.9:
@@ -270,123 +317,69 @@ def check_for_invalid_date():
                         else:
                             break
                     # end of section 3
-                    while True:
+
+                while True:
                         if incorrect_floats != []:
-                            bad_key.append("invalid")
+                            bad_key.append("invalid floats")
                             break
                         else:
                             pass
                             break
-                    # section 1 opens,and strips the file of whitespaces
+                expected_amount = len(batch_ids)
 
-                    open_file3 = open(file_path_copy)
+                id_numbers = batch_ids
 
-                    file_contents4 = open_file3.read()
 
-                    open_file3.close()
+                def check_duplicates():
+                 total_index = len(id_numbers)
+                 remaning_checks = total_index
 
-                    clean_contents = file_contents4.strip()
-                    # end of section 1
+                 current_index = len(id_numbers)
+                 switch_index = 1
+                 results_of_check = []
+                 copy_notused = []
 
-                    # section 3 splits the contents by cammos and strips it of emptystrings
-                    split_comma = clean_contents.split(",")
+                 while True:
+                    if current_index != 0 and remaning_checks != 0:
+                      current_index = current_index-switch_index
+                      current_item = id_numbers[current_index]
+                      current_id = current_item
+                      remaning_checks = remaning_checks - 1
+                      for i in id_numbers:
+                         if i != current_id:
+                          copy_notused.append(1)
+                         elif i == current_id:
+                          results_of_check.append(0)
+                      current_id = None
+                    else:
+                      break
+                 return results_of_check
 
-                    no_emptystring = [i.strip() for i in split_comma if i.strip()]
 
-                    without_headers = " ".join(no_emptystring)
+                check_duplicates()
 
-                    split_items = without_headers.split()
-                    # end of section 3
+                result_amount = len(check_duplicates())
 
-                    # section 4 determines if there is any items missing
-                    tenth_column = len(split_items[120:132])
-                    # end of section 4
-
-                    # section 5 lets you know if there is anything missing
-                    correct_columns = 12
-                    while True:
-                        if tenth_column != correct_columns:
-                            bad_key.append("invalid")
-                            break
-                        else:
-                            pass
-                            break
-                    # end of section 5
-                    open_file = open(file_path_copy)
-
-                    file_contents = open_file.read()
-
-                    clean_contents = file_contents.strip()
-
-                    split_items = clean_contents.split()
-
-                    # end of section one
-
-                    # gets rid of batch ID header section 2
-
-                    header = []
-                    for i in split_items:
-                        if i == "batch_id":
-                            header.append(split_items.pop(0))
-                        break
-
-                    expected_amount = len(split_items)
-
-                    id_numbers = split_items
-
-                    # end of section 2
-                    # checks to see if there are any duplicate numbers in batch ID section 3
-
-                    def check_duplicates():
-                        total_index = len(id_numbers)
-                        remaning_checks = total_index
-
-                        current_index = len(id_numbers)
-                        switch_index = 1
-                        results_of_check = []
-                        copy_notused = []
-
-                        while True:
-                            if current_index != 0 and remaning_checks != 0:
-                                current_index = current_index - switch_index
-                                current_item = id_numbers[current_index]
-                                current_id = current_item
-                                remaning_checks = remaning_checks - 1
-                                for i in id_numbers:
-                                    if i != current_id:
-                                        copy_notused.append(1)
-                                    elif i == current_id:
-                                        results_of_check.append(0)
-                                current_id = None
-                            else:
-                                break
-                        return results_of_check
-
-                    check_duplicates()
-                    # end of section 3
-                    # section 4 lets you know if there is a duplicate in the batch ID numbers section 4
-
-                    result_amount = len(check_duplicates())
-                    print(result_amount)
-                    while True:
-                        if result_amount == expected_amount:
-                            pass
-                            break
-                        elif result_amount != expected_amount:
-                            bad_key.append("invalid")
-                            break
-                # end of section 4
-                # section 4 moves the file in to ether a good folder or bad folder
-                else:
-                    pass'''
+                while True:
+                 if result_amount == expected_amount:
+                     pass
+                     break
+                 elif result_amount != expected_amount:
+                     bad_key.append("invalid ids")
+                     break
+              else:
+                  pass 
             else:
-               continue
+                pass
         else:
-            continue
-        # section 4 moves the file in to ether a good folder or bad folder
-        if bad_key == []:
+           pass
+           if bad_key == []:
             print("good")
-        elif bad_key != []:
+            return shutil.move(file_path_copy, path_one)
+           elif bad_key != []:
             print("bad")
+            return shutil.move(file_path_copy, path_two)
+        
 
-check_for_invalid_date()
+check_for_invalid_date()        
+    # end of section 2
