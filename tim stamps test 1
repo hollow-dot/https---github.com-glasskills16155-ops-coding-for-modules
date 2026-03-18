@@ -1,0 +1,13 @@
+
+
+
+
+
+from datetime import date
+import os
+import csv
+import inflect
+timestamp_seconds = date.today()
+p = inflect.engine()
+print(p.ordinal(1))
+
