@@ -2,6 +2,7 @@ file_path = input()
 
 
 def check_invalid_over10():
+    # section 1 opens,and strips the file of whitespaces
     open_file5 = open(file_path)
 
     file_contents = open_file5.read()
@@ -9,7 +10,8 @@ def check_invalid_over10():
     open_file5.close()
 
     clean_contents = file_contents.strip()
-
+    # end of section 1
+    # section 2 splites each item indeviguley and removes \n
     split_headers = clean_contents.split()
 
     rejoin_numbers = " ".join(split_headers)
@@ -19,6 +21,9 @@ def check_invalid_over10():
     join_contents = " ".join(split_comma)
 
     single_items = join_contents.split()
+    # end of section 2
+
+    # section 3 gets rid of batch ids,headers, and timestamps
 
     readings = []
     non_readings = []
@@ -57,7 +62,8 @@ def check_invalid_over10():
             batch_ids.append(i)
         else:
             floats.append(i)
-
+    # end of section 3
+    # turns the strings in to floats and sorts valid and invalid floats
     readings_floats = [float(i) for i in floats]
 
     incorrect_floats = []
@@ -70,7 +76,7 @@ def check_invalid_over10():
             correct_floats.append(i)
         else:
             break
-
+    # end of section 3
     while True:
         if incorrect_floats != []:
             return False
