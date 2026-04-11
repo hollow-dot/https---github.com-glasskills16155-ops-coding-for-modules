@@ -1,12 +1,55 @@
+
+
+
+
+
+
 from datetime import datetime
 import os
 import shutil
 from ftplib import FTP
 import ftplib
+import socket
+ # section 1 lets you input Credentials for the FTP server aslo check to for invalid Credentials
+while True:
+ ftp = FTP("host.docker.internal")
+ file_credentials1 = []
+ print("please enter host num,port num, username, password")
+ print("all seperated by commas")
+ host_portsuser_pass = input()
+ host_portsuser_pass_copy = host_portsuser_pass
+ file_credentials1.append(host_portsuser_pass)
+ join_credentials1 = "".join(file_credentials1)
+ spliting_credentials1 = join_credentials1.split(",")
+ print(spliting_credentials1)
+ try:
+  ftp.connect(spliting_credentials1[0],int(spliting_credentials1[1]))
+  ftp.set_pasv(True)
+  ftp.af = socket.AF_INET
+  login = ftp.login(spliting_credentials1[2], spliting_credentials1[3])
+ except ConnectionRefusedError:
 
+   print("invalid port number out of range")
+ except ftplib.error_perm:
+
+   print("invalid the username or password is inccorect")
+ except IndexError:
+
+   print("invalid Credentials")
+ except ValueError:
+
+   print("invalid port number must be an integer")
+ except socket.gaierror:
+   
+   print("invalid host number, must look like this 123.0.0.1")
+ else:
+   break
+print(login)
+ # end of section 1
+ # section 2 checks for valid folder path for mixed files 
 print("please insert folder path")
 while True:
-    folder_path = input().replace('"', "")
+    folder_path = input().replace('"', '')
     try:
         if not os.path.isdir(folder_path):
             raise FileNotFoundError(f"Folder not found: {folder_path}")
@@ -16,6 +59,9 @@ while True:
         break
 
 print(f"{folder_path} valid file path")
+  # end of section 2
+  # section 3 checks for valid folder path for good files 
+
 switching_box2 = []
 
 switching_box = []
@@ -36,7 +82,8 @@ def re_run():
  print(f"{good_folder} valid file path")
  return good_folder 
 re_run()
-
+  # end of section 3
+  # section 4 checks for valid folder path for bad files
 def re_run2():
  print("please insert folder path for bad files")
  while True:
@@ -52,8 +99,8 @@ def re_run2():
    
  return bad_folder 
 re_run2()
-
-
+   # end of section 4
+   # section 5 makes sure the good and bad file paths are diffrent  
 while True:
  if switching_box  ==  switching_box2:
   switching_box.clear()
@@ -66,25 +113,24 @@ while True:
   all_good_paths = switching_box
   break
 
-
 def check_for_invalid_date():
  path_one = switching_box[0]
 
  path_two = switching_box2[0]
  file_path = os.listdir(f"{folder_path}")
-  
+  # end of section 5
  for i in file_path:
         file_path = os.path.join(folder_path, i)
         file_path_copy = file_path
-    # section 1 reads file name and strips file name of everything but numbers
+    # section 6 reads file name and strips file name of everything but numbers
         file_name = os.path.basename(file_path)
         num_date = file_name.split("_")
         date_part = num_date[2]
         num_date = date_part.split(".")
         date = num_date[0]
-    # end of section 1
+    # end of section 6
 
-    # section 2 separates the date in to individual year, month, day, hour, minute, second items
+    # section 7 separates the date in to individual year, month, day, hour, minute, second items
 
         year = int(date[0:4])
 
@@ -98,9 +144,9 @@ def check_for_invalid_date():
 
         second = int(date[12:14])
 
-    # end of section 2
+    # end of section 7
 
-    # section 3 tells you if the date is invalid or not
+    # section 8 tells you if the date is invalid or not
         bad_key = []
         try:
             datetime(year, month, day, hour, minute, second)
@@ -108,22 +154,22 @@ def check_for_invalid_date():
             bad_key.append("invalid wrong date")
         else:
             pass
-        # end of section 3
-        # section 1 opens and reads the file
+        # end of section 8
+        # section 9 opens and reads the file
         open_file = open(file_path)
 
         reads_file = open_file.read()
 
         open_file.close()
-    # end of section 1
-    # section 2 appends the file contents to a list
+    # end of section 9
+    # section 10 appends the file contents to a list
         byte0_file = [""]
 
         unknown_byte_file = []
 
         unknown_byte_file.append(reads_file)
-    # end of section 2
-    # section 3 lets you know if the file is empty or not
+    # end of section 10
+    # section 11 lets you know if the file is empty or not
         not_empty = []
         while True:
             if unknown_byte_file == byte0_file:
@@ -132,17 +178,17 @@ def check_for_invalid_date():
             else:
                 not_empty.append("trigger")
                 break
-    # end of section 3
+    # end of section 11
 
         if  not_empty == ['trigger']:
-    # section 1 opens and reads the file
+    # section 12 opens and reads the file
             open_file2 = open(file_path_copy)
 
             read_file = open_file2.read()
             
             open_file2.close()
-    # end of section 1
-    # section 2 appends the commas of the file to a list
+    # end of section 12
+    # section 13 appends the commas of the file to a list
             comma_amount = []
             unused_numbers = []
             swiching_missing_colums = []
@@ -154,8 +200,8 @@ def check_for_invalid_date():
                     unused_numbers.append(i)
                 else:
                     break
-    # end of section 2
-    # section 3 tells you if the file is malformed or not
+    # end of section 13
+    # section 14 tells you if the file is malformed or not
             total_commas = len(comma_amount)
             while True:
                 if total_commas == 121:
@@ -165,16 +211,17 @@ def check_for_invalid_date():
                     bad_key.append("invalid malformed")
                     break  
             if swiching_missing_colums == ['trigger 1']:
-    # section 1 opens,and strips the file of whitespaces
+    # end of section 14
+    # section 15 opens,and strips the file of whitespaces
               open_file3 = open(file_path_copy)
 
               file_contents4 = open_file3.read()
 
               open_file3.close()
               clean_contents = file_contents4.strip()
-    # end of section 1
+    # end of section 15
 
-    # section 3 splits the contents by cammos and strips it of emptystrings
+    # section 16 splits the contents by cammos and strips it of emptystrings
               split_comma = clean_contents.split(",")
 
               no_emptystring = [i.strip() for i in split_comma if i.strip()]
@@ -182,13 +229,13 @@ def check_for_invalid_date():
               without_headers = " ".join(no_emptystring)
 
               split_items = without_headers.split()
-    # end of section 3
+    # end of section 16
 
-    # section 4 determines if there is any items missing
+    # section 17 determines if there is any items missing
               tenth_column = len(split_items[120:132])
-    # end of section 4
+    # end of section 17
 
-    # section 5 lets you know if there is anything missing
+    # section 18 lets you know if there is anything missing
               correct_columns = 12
               no_missing_items = []
               while True:
@@ -198,8 +245,9 @@ def check_for_invalid_date():
                   else:
                     no_missing_items.append('trigger 2')
                     break
-    # end of section 5
+    # end of section 18
               if no_missing_items == ['trigger 2']:
+    # section 19 opens,reads, and strips the file
                 open_file4 = open(file_path_copy)
                    
                 file_contents = open_file4.read()
@@ -207,7 +255,8 @@ def check_for_invalid_date():
                 open_file4.close()
 
                 clean_contents = file_contents.strip()
-
+    # end of section 19
+    # section 20 splites the headers into individual varibles 
                 headings = clean_contents[0:109]
 
                 only_headings = headings
@@ -238,8 +287,8 @@ def check_for_invalid_date():
 
                 reading10_header = only_headings[100:109]
                 
-    # end of section 1
-    # section 2 separates each header into there own variable
+    # end of section 20
+    # section 21 checks for invalid headers 
                 total_headers = []
                 while_trigger = []
                 while True:
@@ -274,8 +323,8 @@ def check_for_invalid_date():
                      
                 header_amount = len(total_headers)
 
-    # end of section 3
-    # section 4 tells you if all headers are correct in the file
+    # end of section 22
+    # section 23 tells you if all headers are correct in the file
                 correct_amount = 2
 
                 while True:
@@ -295,8 +344,8 @@ def check_for_invalid_date():
                 open_file5.close()
 
                 clean_contents = file_contents.strip()
-    # end of section 1
-    # section 2 splites each item indeviguley and removes \n
+    # end of section 23
+    # section 24 splites each item individually and removes \n
                 split_headers = clean_contents.split()
 
                 rejoin_numbers = " ".join(split_headers)
@@ -306,9 +355,9 @@ def check_for_invalid_date():
                 join_contents = " ".join(split_comma)
 
                 single_items = join_contents.split()
-    # end of section 2
+    # end of section 24
 
-    # section 3 gets rid of batch ids,headers, and timestamps
+    # section 25 gets rid of batch ids,headers, and timestamps
 
                 readings = []
                 non_readings = []
@@ -347,8 +396,8 @@ def check_for_invalid_date():
                             batch_ids.append(i)
                         else:
                             floats.append(i)
-    # end of section 3
-    # section 4 turns the strings in to floats and sorts valid and invalid floats
+    # end of section 25
+    # section 26 turns the strings in to floats and sorts valid and invalid floats
                 readings_floats = [float(i) for i in floats]
 
                 incorrect_floats = []
@@ -361,8 +410,8 @@ def check_for_invalid_date():
                             correct_floats.append(i)
                         else:
                             break
-    # end of section 3
-    # section 5 telled you if floats are good or not 
+    # end of section 26
+    # section 27 telled you if floats are good or not 
                 while True:
                         if incorrect_floats != []:
                             bad_key.append("invalid floats")
@@ -370,8 +419,8 @@ def check_for_invalid_date():
                         else:
                             pass
                             break
-    # end of section 4
-    # section 4 sorts through batch ids 
+    # end of section 27
+    # section 28 chedcks for invalid batch ids
                 expected_amount = len(batch_ids)
 
                 id_numbers = batch_ids
@@ -401,10 +450,10 @@ def check_for_invalid_date():
                     else:
                       break
                  return results_of_check
-    # end of section 4
+    # end of section 28
  
                 check_duplicates()
-                    #section 4 tell you if batch ids are bad or not 
+    #section 28 tell you if batch ids are valid or not 
                 result_amount = len(check_duplicates())
 
                 while True:
@@ -414,14 +463,14 @@ def check_for_invalid_date():
                  elif result_amount != expected_amount:
                      bad_key.append("invalid ids")
                      break
-    # end of section 4
+    # end of section 28
               else:
                   pass 
             else:
                 pass
         else:
            pass
-    # section 4 moves good and bad files to seprate folders
+    # section 29 moves good and bad files to seprate folders
         if bad_key == []:
             print("good")
             shutil.move(file_path_copy, path_one)
@@ -431,4 +480,4 @@ def check_for_invalid_date():
         
 
 check_for_invalid_date()        
-    # end of section 2
+    # end of section 29

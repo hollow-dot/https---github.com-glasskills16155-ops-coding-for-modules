@@ -12,5 +12,7 @@ headers = "date,time,errors\n"
 absolute_path = os.path.join(f"{current_derectory}\{file_name}.csv")
 print(absolute_path)
 
-with open(f"{absolute_path}", "w") as file:
-            file.write(headers)
+with open(f"{absolute_path}", "w") as file_path:
+            file_path.write(headers)
+
+

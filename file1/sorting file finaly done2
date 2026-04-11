@@ -4,18 +4,61 @@ import shutil
 from ftplib import FTP
 import ftplib
 
+
+
+while True:
+ ftp = FTP()
+ file_credentials1 = []
+ print("please enter host num,port num,user name, password")
+ print("all seperated by commas")
+ host_portsuser_pass = input()
+ host_portsuser_pass_copy = host_portsuser_pass
+ file_credentials1.append(host_portsuser_pass)
+ join_credentials1 = "".join(file_credentials1)
+ spliting_credentials1 = join_credentials1.split(",")
+ print(spliting_credentials1)
+ try:
+  ftp.connect(spliting_credentials1[0],int(spliting_credentials1[1]))
+  ftp.login(spliting_credentials1[2], spliting_credentials1[3])
+ except ConnectionRefusedError:
+
+   print("invalid credentials")
+ except ftplib.error_perm:
+
+   print("invalid credentials")
+ except IndexError:
+
+   print("invalid credentials")
+ else:
+   break
+
+ 
+print("please select the remote folder path you want to open")
+folder_path = input("")
+folder_path2 = folder_path
+name_only = []
+name_only.append(folder_path2)
+join = "".join(name_only)
+
+split = join.split("/")
+
+relative_path = split[2] 
+absolute_path = os.path.abspath(relative_path)
+
+
 print("please insert folder path")
 while True:
-    folder_path = input().replace('"', "")
+    folder_path = absolute_path
     try:
         if not os.path.isdir(folder_path):
             raise FileNotFoundError(f"Folder not found: {folder_path}")
     except FileNotFoundError:
-        print("please input valid file path")
+        print("please input valis file path")
     else:
         break
 
 print(f"{folder_path} valid file path")
+
 switching_box2 = []
 
 switching_box = []
@@ -65,7 +108,6 @@ while True:
   print("all folder paths are valid")
   all_good_paths = switching_box
   break
-
 
 def check_for_invalid_date():
  path_one = switching_box[0]

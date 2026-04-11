@@ -1,0 +1,28 @@
+
+
+
+
+
+
+
+
+
+import re
+
+def seprate_date_letters(file_path):
+    match = re.search(r"(\d{14})", file_path)
+    if not match:
+        raise ValueError("No date found")
+    
+    date_str = match.group(1)
+    
+    return (
+        int(date_str[0:4]),   # year
+        int(date_str[4:6]),   # month
+        int(date_str[6:8]),   # day
+        int(date_str[8:10]),  # hour
+        int(date_str[10:12]), # minute
+        int(date_str[12:14])  # second
+    )
+
+
