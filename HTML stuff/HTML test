@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+	<title>Font Family</title>
+    <style>
+        body {
+            font-family: Georgia, Helvetica, sans-serif;
+        }
+    </style>
+    <style>
+
+</style>
+
+<style>
+.box {
+    border: 2px solid rgb(39,83,23); /* width, style, color */
+    padding: 1000px;          /* space inside the border */
+    width: 200px;
+}
+</style>
+
+
+</head>
+
+
+<style>
+    
+h1,h2 {
+  
+  margin-left: 60px;  /* Move right */
+}
+</style>
+
+     <h1 style="text-decoration: underline;"> Home</h1>
+
+     <h2 style="text-decoration: underline;"> Login </h2>
+
+     <style>
+
+p {
+     margin-top: 200px;
+    margin-left: 900px;
+}
+</style>
+    
+    
+    <body>
+             <style>
+        
+    </style>
+      <div class="box nowrap"></div>
+      <p>Welcome to the Centrala 
+        <br />Trust for Ornithology (CTO) 
+        <br />message board  here you can 
+        <br />post, view and edit, bird 
+        <br />sightings
+        
+</p>
+<style>
+   
+        /* This moves only the paragraph with id="special" */
+        form {
+            position: relative; /* allows movement without removing it from normal flow */
+            left: 1100px;         /* move 50px to the right */
+            top: -300px;          /* move 20px down */
+
+        }
+    
+
+</style>
+ <form>
+    <label for="search">search:</label>
+        <input type="text" id="serch">
+ </form>
+   
+ <style>
+   
+        /* This moves only the paragraph with id="special" */
+        #create {
+            position: relative; /* allows movement without removing it from normal flow */
+            left: 50px;         /* move 50px to the right */
+            bottom: 170px;          /* move 20px down */
+
+        }
+    
+
+</style>
+ <p id="create">  Create an account 
+          </p>  
+   </div>
+    </body>
+    
+ 
+</head>
+<body>
+    
+</body>
+</html>
