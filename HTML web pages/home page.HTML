@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <style>
+         body {
+            font-family: Georgia, Helvetica, sans-serif;
+        }   
+        /* Style for the box */
+        .border-box {
+            border: 10px solid  rgb(39,83,23); /* thickness, style, color */
+            height: 100vh;   /* full screen height */
+            width: 99%;    /* full screen width */
+            background-color: #F3F1E6; /* optional background */
+        }
+    </style>
+</head>
+<style>
+    input {position: absolute; /* allows movement without removing it from normal flow */
+            border-radius: 10px;
+            width: 30%;       /* Controls horizontal size */
+            height: 5%;       /* Controls vertical size */
+            top: 5%;           /* Center vertically */
+            left: 65%;          /* Center horizontally */
+            border: 3px solid #333; /* Optional: thicker border */
+            padding: 1%;      /* Adds space inside the box */
+            font-size: 150%;    /* Makes text inside bigger */
+            font-family: Georgia, Helvetica, sans-serif;
+            color:  #000000;      
+    } 
+    input::placeholder {
+                  color: black;           /* placeholder text */
+                            }      
+    
+</style>
+     <style>
+      .binoculars{
+            display: block;
+             margin-top: 1%;}
+     </style>
+
+<style>
+    .edit{display: block;
+             margin-top: 28%;
+    }
+</style> 
+<style>
+    .home-button{position: absolute;
+        display: block;
+        top: 8%;
+        margin-left: 7%;
+        font-size: 200%;
+    }
+</style>   
+<style>
+    .create-button{position: absolute;
+        display: block;
+        top: 23%;
+        margin-left: 7%;
+        font-size: 200%;
+    }
+</style> 
+<style>
+    .edit-button{position: absolute;
+        display: block;
+        top: 93%;
+        margin-left: 7%;
+        font-size: 200%;
+
+    }
+</style>
+<body>
+    <div class="border-box">
+        <img src="house.svg" alt="house" width="100">
+        <a class="home-button" href="HTML.html">home</a> 
+        <img class="binoculars" src="Picture11.svg" alt="binoculars" width="100">
+        <a class="create-button" href="create a post.HTML">Create a post</a>
+        <img class="edit"src="Picture1.svg" alt="paper" width="100">
+        <a class="edit-button" href="edit and delete post.HTML">Edit or delete a post</a>
+        <input type="text" placeholder="search">
+    </div>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <style>
+         body {
+            font-family: Georgia, Helvetica, sans-serif;
+        }   
+        /* Style for the box */
+        .border-box {
+            border: 10px solid  rgb(39,83,23); /* thickness, style, color */
+            height: 100vh;   /* full screen height */
+            width: 99%;    /* full screen width */
+            background-color: #FDFFF5; /* optional background */
+        }
+    </style>
+</head>
+<style>
+    .post-create{position: absolute;
+          top: 15%;
+    border: 10px solid  rgb(39,83,23); /* thickness, style, color */
+            height: 85vh;   /* full screen height */
+            width: 97%;    /* full screen width */
+            background-color: #F3F1E6; /* optional background */
+    }
+</style>
+<style>
+     h1{
+        position: absolute;
+            left:2%;
+            top: 1%;
+     }
+</style>
+<style>
+    h2{position: absolute;
+            left:89%;
+            top: 90%;
+    }
+</style>
+<style>
+    h3{position: absolute;
+            left: 37%;
+            top: 3%;
+            font-size: 160%;  
+    }
+</style>
+<style>
+    .input-box{position: absolute; /* allows movement without removing it from normal flow */
+            border-radius: 10px;
+            width: 30%;       /* Controls horizontal size */
+            height: 1%;
+            border: 3px solid #333; /* Optional: thicker border */
+            padding: 1%;      /* Adds space inside the box */
+            font-size: 150%;    /* Makes text inside bigger */
+            font-family: Georgia, Helvetica, sans-serif;
+            background-color: #F2F2F2;
+
+    }
+        input::placeholder {
+                  color: black;           /* placeholder text */
+                            }      
+    
+</style>
+<style>
+    #date {top: 8%;         
+            left: 3%;  } 
+    #date-seeing{position: absolute;
+        top: 0%;
+        left: 3%;
+    }              
+</style>
+<style>
+#Time-of-observation{top: 25%;  
+            left: 3%;  
+
+}
+#time-of{position: absolute;
+        top: 17%;
+        left: 3%;}
+</style>
+<style>
+    #Type-of-bird{top: 42%; 
+                  left: 3%;  
+    }
+    #type-bird{position: absolute;
+        top: 33%;
+        left: 3%;
+
+    }
+</style>
+<style>
+   #activity{top: 59%; 
+                  left: 3%;  
+   }
+   #doing{position: absolute;
+                  top: 50%; 
+                  left: 3%; 
+
+   }
+</style>
+<style>
+    #observation{top: 76%; 
+                  left: 3%;
+    }
+    #Duration{position: absolute;
+                  top: 67%; 
+                  left: 3%;
+
+    }
+</style>
+<style>
+    #Location{top: 91%; 
+                  left: 3%;}
+    #area{position: absolute;
+                  top: 83%; 
+                  left: 3%;
+
+    }
+</style>
+<style>
+   #comments{position: absolute;
+            top: 64%; 
+            left: 65%;
+            border-radius: 20px;
+            width: 30%;       /* Controls horizontal size */
+            height: 20%;
+            border: 3px solid #333; /* Optional: thicker border */
+            padding: 1%;      /* Adds space inside the box */
+            font-size: 150%;    /* Makes text inside bigger */
+            font-family: Georgia, Helvetica, sans-serif;
+            background-color: #F2F2F2;
+   }
+</style>
+<style>
+    #image_for_post{position: absolute;
+        top: 25%; 
+         left: 70%;
+    }
+    #image-guide{position: absolute;
+        top: 8%; 
+         left: 66%;
+
+    }
+</style>
+<Style>
+    .input-header{
+        font-size: 150%;
+    }
+    #messege{position: absolute;
+        top: 56%; 
+         left: 66%;
+        
+    }
+</Style>
+
+<body>
+    <div class="border-box">
+        <h1><a href="home page.HTML">back</a></h1>
+        <h3> Please fill all non-optional fields </h3> 
+        <div class="post-create">
+        <h2><a href="home page.HTML">create post</a></h2>
+        <P class="input-header" id="date-seeing">Date of observation </P>
+        <input type="text"placeholder="date" class="input-box" id="date">
+        <P class="input-header" id="time-of">Time of observation</P>
+        <input type="text"placeholder="Time" class="input-box" id="Time-of-observation">
+        <P class="input-header" id="type-bird">Type of bird</P>
+        <input type="text"placeholder="Type" class="input-box" id="Type-of-bird">
+        <P class="input-header" id="doing">What activity were they doing ?</P>
+        <input type="text"placeholder="activity" class="input-box" id="activity">
+        <P class="input-header" id="Duration">Duration of observation (in minutes) </P>
+        <input type="text"placeholder="observation" class="input-box" id="observation">
+        <P class="input-header" id="area">Location</P>
+        <input type="text"placeholder="Location" class="input-box" id="Location">
+        <P class="input-header" id="image-guide">Image Optional must be max 1.2 
+            <br>Megabytes in size; png or jpg only 
+        </P> 
+        <input type="file" id="image_for_post" name="image">
+        <P class="input-header" id="messege">comment</P> 
+        <input type="text" id="comments">
+        </div>
+    </div>
+</body>
+</html>

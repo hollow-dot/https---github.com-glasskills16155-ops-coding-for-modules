@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bird website</title>
+
+    <style>
+         body {
+            font-family: Georgia, Helvetica, sans-serif;
+        }   
+        /* Style for the box */
+        .border-box {
+            border: 10px solid  rgb(39,83,23); /* thickness, style, color */
+            height: 100vh;   /* full screen height */
+            width: 99%;    /* full screen width */
+            background-color: #F3F1E6; /* optional background */
+        }
+    </style>
+
+</head>
+<style>
+h1 {
+  margin-top: -3%; 
+  margin-left: 6%;  /* Move right */
+}
+h2 { margin-top: 2%; 
+  margin-left: 7%;
+  font-size: 180%;
+}
+
+    input {
+            position: absolute; /* allows movement without removing it from normal flow */
+            left: 67%;         /* move 50px to the right */
+            top: 5%;          /* move 20px down */
+            border-radius: 9px;
+            width: 30%;       /* Controls horizontal size */
+            height: 5%;       /* Controls vertical size */
+            border: 3px solid #333; /* Optional: thicker border */
+            padding: 5px;      /* Adds space inside the box */
+            font-size: 120%;    /* Makes text inside bigger */
+            font-family: Georgia, Helvetica, sans-serif;
+            color:  #000000;
+           
+            
+    } 
+    input::placeholder {
+                  color: black;           /* placeholder text */
+                            }      
+    
+</style>
+     
+ <style>
+    .account-box {
+        position: absolute;
+        left: 7%;
+        top: 28%;
+        border: 10px solid  rgb(39,83,23);
+        height: 70%;   /* full screen height */
+            width: 80%;    /* full screen width */
+         background-color: #000000
+         
+    }
+    p { 
+        position: relative;
+        left: 55%; 
+        top: 10%;
+        font-size: 250%;
+        color: #F3F1E6;
+           
+
+    }
+ </style>
+ <style>
+        #create {position: absolute;
+            color: #F3F1E6;
+            display: inline-block;
+             margin-top: 1%;
+             margin-left: 5%;
+        }
+</style>
+<style>
+    .image-container {
+        position: absolute;
+        left:0%;
+        top: 0%;
+        width: 50%;
+            height: 95%;
+            
+            background-image: url("Picture3.jpg");
+            
+    } 
+</style>
+<style>
+#bird {
+  position: absolute;
+  top: 15%;
+  left: 2%;
+  
+}
+</style>
+
+<body>
+    <div class="border-box">
+     <img src="house.svg" alt="house" width="80">
+     <img id = "bird"src="bird icon.png" alt="bird-icon" width="80">
+      <h1>Home</h1>
+      <h2><a href="login.HTML">login</a></h6>
+       <input type="text" placeholder="search">
+     <div class="account-box">
+        <p> Welcome to the Centrala 
+        <br />Trust for Ornithology (CTO) 
+        <br />message board  here you can 
+        <br />post, view and edit, bird 
+        <br />sightings
+
+        <p><a href="create an account.HTML" id="create">Create an account</a>
+          </p>
+        <div class="image-container">
+              
+        </div>
+     </div>  
+
+   
+    </div>
+</body>
+</html>
