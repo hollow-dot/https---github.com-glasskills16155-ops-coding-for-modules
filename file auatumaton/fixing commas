@@ -1,0 +1,319 @@
+
+
+
+
+
+import os
+import random
+
+while True:
+ try:
+  name_of_folder = input()
+  path = os.getcwd()
+  current_directory = os.getcwd()
+  dir_list = os.listdir(path)
+  os.makedirs(name_of_folder)
+ except FileExistsError:
+  print("folder name alredy exixts")
+ except OSError :
+   print("folder can not have symbols such as ?,!,=  ")
+ else:
+    print(f" folder has been created :{name_of_folder}") 
+    break
+
+
+
+full_file_path =  os.path.join(current_directory,name_of_folder)
+print(full_file_path)
+
+# section 1 lets you input a file path and the amount of files you want
+while True:
+    folder_path_unknownfiles = full_file_path
+    try:
+        if not os.path.isdir(folder_path_unknownfiles):
+            raise FileNotFoundError(f"Folder not found: {folder_path_unknownfiles}")
+    except FileNotFoundError:
+        print("please input valid file path")
+    else:
+        break
+
+
+# end of section 1
+# section 2 generates valid dates
+def choosing_date_header():
+    print("please input amount of mixed files")
+    while True:
+        try:
+            box = int(input())
+        except ValueError:
+            print("please input valid integer")
+        else:
+            break
+    for i in range(box):
+        file_path_rerun = folder_path_unknownfiles
+        switching_between = random.randint(1, 30)
+
+        date_valid_items = []
+
+        date_valid_items.append(random.randint(2000, 2025))
+
+        date_valid_items.append(random.randint(1, 12))
+
+        date_valid_items.append(random.randint(1, 31))
+
+        date_valid_items.append(random.randint(1, 24))
+
+        date_valid_items.append(random.randint(1, 60))
+
+        date_valid_items.append(random.randint(1, 60))
+
+        valid_date = []
+        for i in date_valid_items:
+            if i < 10:
+                valid_date.append(f"0{i}")
+            elif i >= 10:
+                valid_date.append(f"{i}")
+
+        date_in_range = "".join(valid_date)
+        # end of section 2
+        # section 3 generates invalid dates
+        date_invalid_items = []
+        date_invalid_items.append(random.randint(2027, 2100))
+
+        date_invalid_items.append(random.randint(1, 100))
+
+        date_invalid_items.append(random.randint(1, 100))
+
+        date_invalid_items.append(random.randint(1, 100))
+
+        date_invalid_items.append(random.randint(1, 100))
+
+        date_invalid_items.append(random.randint(1, 100))
+
+        invalid_date = []
+        for i in date_invalid_items:
+            if i < 10:
+                invalid_date.append(f"0{i}")
+            elif i >= 10:
+                invalid_date.append(f"{i}")
+
+        date_outof_range = "".join(invalid_date)
+        # end of section 3
+        # section 4 creates randomly selected dates
+
+        if switching_between > 20:
+            mixing_dates = date_outof_range
+        elif switching_between <= 20:
+            mixing_dates = date_in_range
+
+        file_date = f"MED_DATA_{mixing_dates}.csv"
+        # end of section 4
+        # section 5 genorates invalid headers
+        random_headers = random.randint(1, 30)
+        headers = "batch_id,timestamp,reading1,reading2,reading3,reading4,reading5,reading6,reading7,reading8,reading9,reading10\n"
+
+        wrong_headers = []
+
+        while True:
+            if random_headers > 20:
+                headers2 = "batch_id,timestamp,reading1,reading2,reading3,reading4,reading5,reading6,reading7,reading8,reading9,reading10\n"
+                split_headers = headers2.split(",")
+
+                for i in split_headers:
+                    random_chr_for_head = chr(random.randint(ord("a"), ord("t")))
+                    random_chr = chr(random.randint(ord("a"), ord("z")))
+                    random_text = i.replace(random_chr_for_head, random_chr)
+                    wrong_headers.append(random_text)
+                break
+            else:
+                break
+
+        joining_headings = ",".join(wrong_headers)
+
+        # end of section 5
+
+        # section 6 switches bettween valid and invalid headers
+        if random_headers > 20:
+            mixed_headers = joining_headings
+        elif random_headers <= 20:
+            mixed_headers = headers
+
+        headers = mixed_headers
+        # end of section 6
+        # section 7 generates valid an invalid readings
+        switching_floats = random.randint(1, 30)
+
+        time_stamp = "14:01:04"
+        colum_num_valid_flo = 11
+
+        valid_floats = []
+        invalid_floats = []
+        for colum_num_valid_flo in range(1, 101):
+            if colum_num_valid_flo != 0 and colum_num_valid_flo != 101:
+                floats = round(random.uniform(1, 9), 3)
+                valid_floats.append(float(floats))
+
+        for colum_num_valid_flo in range(1, 101):
+            if colum_num_valid_flo != 0 and colum_num_valid_flo != 101:
+                floats = round(random.uniform(1, 15), 3)
+                invalid_floats.append(float(floats))
+        # end of section 7
+        # section 8 switches bettween valid and invalid floats
+        while True:
+            if switching_floats <= 20:
+                floats_file = valid_floats
+                break
+            elif switching_floats > 20:
+                floats_file = invalid_floats
+                break
+            else:
+                break
+        # end of section 8
+        # section 9 separates the readings in to colums 10 separate colums
+        all_floats = ",".join(str(item) for item in floats_file)
+
+        split_list = all_floats.split(",")
+
+        row_one_floats = split_list[0:10]
+
+        row_one_floats = ",".join(str(item) for item in row_one_floats)
+
+        row_two_floats = split_list[10:20]
+
+        row_two_floats = ",".join(str(item) for item in row_two_floats)
+
+        row_three_floats = split_list[20:30]
+
+        row_three_floats = ",".join(str(item) for item in row_three_floats)
+
+        row_four_floats = split_list[30:40]
+
+        row_four_floats = ",".join(str(item) for item in row_four_floats)
+
+        row_five_floats = split_list[40:50]
+
+        row_five_floats = ",".join(str(item) for item in row_five_floats)
+
+        row_six_floats = split_list[50:60]
+
+        row_six_floats = ",".join(str(item) for item in row_six_floats)
+
+        row_seven_floats = split_list[60:70]
+
+        row_seven_floats = ",".join(str(item) for item in row_seven_floats)
+
+        row_eight_floats = split_list[70:80]
+
+        row_eight_floats = ",".join(str(item) for item in row_eight_floats)
+
+        row_nine_floats = split_list[80:90]
+
+        row_nine_floats = ",".join(str(item) for item in row_nine_floats)
+
+        row_ten_floats = split_list[90:110]
+
+        row_ten_floats = ",".join(str(item) for item in row_ten_floats)
+        # end of section 9
+
+        # section 10 creates a valid batch id
+        box = random.randint(1, 30)
+
+        id_num = []
+        numbers = 10
+        for numbers in range(1, 11):
+            if numbers != 0 and numbers != 11:
+                random_num = random.randint(1, 1000)
+                id_num.append(random_num)
+
+        index = []
+        for item in range(0, 10):
+            index.append(item)
+        wrong_index = []
+        for item in range(0, 10):
+            wrong_index.append(random.randint(0, 9) and random.randint(0, 9))
+
+        if box > 20:
+            i = wrong_index
+        elif box <= 20:
+            i = index
+        # end of section 10
+        row_1 = f"{id_num[i[0]]},{time_stamp},{row_one_floats}\n"
+        row_2 = f"{id_num[i[1]]},{time_stamp},{row_two_floats}\n"
+        row_3 = f"{id_num[i[2]]},{time_stamp},{row_three_floats}\n"
+        row_4 = f"{id_num[i[3]]},{time_stamp},{row_four_floats}\n"
+        row_5 = f"{id_num[i[4]]},{time_stamp},{row_five_floats}\n"
+        row_6 = f"{id_num[i[5]]},{time_stamp},{row_six_floats}\n"
+        row_7 = f"{id_num[i[6]]},{time_stamp},{row_seven_floats}\n"
+        row_8 = f"{id_num[i[7]]},{time_stamp},{row_eight_floats}\n"
+        row_9 = f"{id_num[i[8]]},{time_stamp},{row_nine_floats}\n"
+        row_10 = f"{id_num[i[9]]},{time_stamp},{row_ten_floats}\n"
+        total_columns = (
+            headers
+            + row_1
+            + row_2
+            + row_3
+            + row_4
+            + row_5
+            + row_6
+            + row_7
+            + row_8
+            + row_9
+            + row_10
+        )
+        # end of section 10
+        # section 11 randomly removes timems and repleces them with emptystrings
+       
+        reguler = total_columns
+        un_reguler = total_columns
+        
+        non_malforemed = reguler
+        malforemd_50 = random.randint(1, 30)
+
+        random_indexs = random.randint(1, 5)
+        malfomed_data = un_reguler
+        random_symboles = len(malfomed_data)
+        
+        
+
+
+        for i in range(random_indexs):
+            random_symboles1 = random_symboles
+            random_comma = random.randint(1, random_symboles1)
+            print(random_comma)
+            malfomed_data = malfomed_data.replace(malfomed_data[random_comma], ",")
+            print(malfomed_data)
+            random_symboles1 = random_symboles1 - 1
+        # end of section 13
+        # section 14 switches between malfomed data and non malfomed data
+        while True:
+            if malforemd_50 > 1:
+                mixed_malfomd_data = malfomed_data
+                break
+            elif malforemd_50 <= 1:
+                mixed_malfomd_data = non_malforemed
+                break
+
+        print(mixed_malfomd_data)
+       
+
+        # end of section 14
+        # section switches between empty file and non empty files
+        # as well as creates empty files
+        '''empty_file = random.randint(1, 30)
+        # section
+        if empty_file <= 20:
+            absolute_path = os.path.join(file_path_rerun, file_date)
+            with open(f"{absolute_path}", "w") as file:
+                file.write(mixed_regulare_unregulare_data)
+        elif empty_file > 20:
+            absolute_path = os.path.join(file_path_rerun, file_date)
+            with open(f"{absolute_path}", "wb") as file:
+                pass
+        # end of section 14'''
+
+    
+choosing_date_header()
+
+
+
+
