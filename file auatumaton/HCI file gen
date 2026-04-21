@@ -1,20 +1,13 @@
 
 
-
-
-
-
-
-
-
-
-
-
 import os
 import random
 
+
+
+
+
 # section 1 lets you input a file path and the amount of files you want
-print("please input folder path for mixed files")
 while True:
     folder_path_unknownfiles = input().replace('"', "")
     try:
@@ -23,6 +16,8 @@ while True:
     except FileNotFoundError:
         print("please input valid file path")
     else:
+        print(f"folder has been successfully created{folder_path_unknownfiles}")
+        print(f" folder has been created :{folder_path_unknownfiles}")
         break
 
 
@@ -36,6 +31,7 @@ def choosing_date_header():
         except ValueError:
             print("Invalid input. Please enter a whole number")
         else:
+            print(f"the system has successfully received amount {box}")
             break
     for i in range(box):
         file_path_rerun = folder_path_unknownfiles
@@ -327,18 +323,18 @@ def choosing_date_header():
             + line_11_newline
         )
         # end of section 12
-        # section switches between missing row data and non missing row data
+        # section 13 switches between missing row data and non missing row data
         if random_missing_items > 20:
             mix_missing_rows = join_colums
         elif random_missing_items <= 20:
             mix_missing_rows = reguler
         
-        
+        # end of section 13
+        # section 14 adds commas to data randomly using index
         malforemd_50 = random.randint(1, 30)
         non_malforemed = mix_missing_rows
 
         random_indexs = random.randint(1, 10)
-        print(random_indexs)
         malfomed_data = mix_missing_rows
         box = malfomed_data.split(",")
         random_symbols = len(box)-2
@@ -346,13 +342,13 @@ def choosing_date_header():
 
         for i in range(random_indexs):
             random_index = random.randint(0, random_symbols)
-            box[random_index ] = box[random_index ] + ","
+            box[random_index] = box[random_index ] + ","
             random_symbols - 1
     
 
         joining = ",".join(box)
-        print(joining)
-
+        # end of section 14
+        # section 15 randomly selects between malformed and non malformed data
         while True:
             if malforemd_50 > 20:
                 mixed_malfomd_data = joining
@@ -360,20 +356,25 @@ def choosing_date_header():
             elif malforemd_50 <= 20:
                 mixed_malfomd_data = non_malforemed
                 break
-        # end of section 14
-        # section switches between empty file and non empty files
+        # end of section 15
+        # section 16 switches between empty file and non empty files
         # as well as creates empty files
         empty_file = random.randint(1, 30)
-        # section
-        if empty_file <= 20:
-            absolute_path = os.path.join(file_path_rerun, file_date)
-            with open(f"{absolute_path}", "w") as file:
-                file.write(mixed_malfomd_data)
-        elif empty_file > 20:
-            absolute_path = os.path.join(file_path_rerun, file_date)
-            with open(f"{absolute_path}", "wb") as file:
-                pass
-        # end of section 14
+        while True:
+            if empty_file > 20:
+                empty_mixed = mixed_malfomd_data
+                empty_mixed = ''
+                break
+            elif empty_file <= 20:
+                empty_mixed = mixed_malfomd_data
+                break
+        
+        absolute_path = os.path.join(file_path_rerun, file_date)
+        with open(f"{absolute_path}", "w") as file:
+                file.write(empty_mixed)
+        
+        print("file hase been successfully generated")
+        # end of section 16
 
     
 choosing_date_header()

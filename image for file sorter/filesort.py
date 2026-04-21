@@ -21,7 +21,6 @@ while True:
  file_credentials1.append(host_portsuser_pass)
  join_credentials1 = "".join(file_credentials1)
  spliting_credentials1 = join_credentials1.split(",")
- print(spliting_credentials1)
  try:
   ftp.connect(spliting_credentials1[0],int(spliting_credentials1[1]))
   ftp.set_pasv(True)
@@ -44,21 +43,20 @@ while True:
    print("invalid host number, must look like this 123.0.0.1")
  else:
    break
-print(login)
+print(f"login successful {login}")
  # end of section 1
  # section 2 checks for valid folder path for mixed files 
-print("please insert folder path")
+print("please insert folder path containing mixed csv files")
 while True:
     folder_path = input().replace('"', '')
     try:
         if not os.path.isdir(folder_path):
             raise FileNotFoundError(f"Folder not found: {folder_path}")
     except FileNotFoundError:
-        print("please input valid file path")
+        print("please input valid folder path")
     else:
+        print(f"Folder path accepted {folder_path}")
         break
-
-print(f"{folder_path} valid file path")
   # end of section 2
   # section 3 checks for valid folder path for good files 
 
@@ -74,30 +72,32 @@ def re_run():
    if not os.path.isdir(good_folder):
     raise FileNotFoundError(f"Folder not found: {good_folder}")
   except FileNotFoundError:
-   print("please input valid file path")
+   print("please input valid file path for good files")
   else:
+    print(f"folder path for good files accepted {good_folder}")
     switching_box.append(good_folder)
     break  
-  
- print(f"{good_folder} valid file path")
  return good_folder 
 re_run()
+
   # end of section 3
   # section 4 checks for valid folder path for bad files
+
 def re_run2():
  print("please insert folder path for bad files")
  while True:
   bad_folder = input().replace('"', '')
   try:
      if not os.path.isdir(bad_folder):
-      raise FileNotFoundError(f"Folder not found: {bad_folder}")
+      raise FileNotFoundError(f"Folder not found {bad_folder}")
   except FileNotFoundError:
      print("please input valid file path")
   else:
+     print(f"folder path for bad files accepted {bad_folder}")
      switching_box2.append(bad_folder)
      break
-   
  return bad_folder 
+
 re_run2()
    # end of section 4
    # section 5 makes sure the good and bad file paths are diffrent  
@@ -105,11 +105,11 @@ while True:
  if switching_box  ==  switching_box2:
   switching_box.clear()
   switching_box2.clear()
-  print("good and bad path cannot be the same")
+  print("good and bad folder paths cannot be the same")
   re_run()
   re_run2()
  else:
-  print("all folder paths are valid")
+  print("all folder paths are unique and acceptable")
   all_good_paths = switching_box
   break
 
@@ -472,10 +472,10 @@ def check_for_invalid_date():
            pass
     # section 29 moves good and bad files to seprate folders
         if bad_key == []:
-            print("good")
+            print("valid csv files have been moved to the folder for good files")
             shutil.move(file_path_copy, path_one)
         elif bad_key != []:
-            print("bad")
+            print("invalid csv files have been moved to the folder for bad files")
             shutil.move(file_path_copy, path_two)
         
 
