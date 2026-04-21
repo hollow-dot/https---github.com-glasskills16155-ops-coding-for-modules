@@ -1,0 +1,12 @@
+
+
+a = 9
+b = 10
+userp = input()
+code = "death"
+while True:
+    if userp == code:
+        combind = a + b
+    else:
+        quit()
+        

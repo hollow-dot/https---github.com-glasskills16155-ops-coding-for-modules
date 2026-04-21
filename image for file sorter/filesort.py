@@ -15,10 +15,10 @@ while True:
  ftp = FTP("host.docker.internal")
  file_credentials1 = []
  print("please enter host num,port num, username, password")
- print("all seperated by commas")
- host_portsuser_pass = input()
- host_portsuser_pass_copy = host_portsuser_pass
- file_credentials1.append(host_portsuser_pass)
+ print("all seperated by commas or press q if you want to quite the program")
+ credentials = input()
+ host_port_user_pass_copy = credentials
+ file_credentials1.append(credentials)
  join_credentials1 = "".join(file_credentials1)
  spliting_credentials1 = join_credentials1.split(",")
  try:
