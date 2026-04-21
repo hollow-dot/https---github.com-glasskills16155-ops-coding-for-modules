@@ -48,17 +48,19 @@
 </style>
 <style>
     .input-box{position: absolute; /* allows movement without removing it from normal flow */
-            border-radius: 10px;
-            width: 30%;       /* Controls horizontal size */
-            height: 1%;
+            border-radius: 9px;
+            width: 20%;       /* Controls horizontal size */
+            height: 6%;
             border: 3px solid #333; /* Optional: thicker border */
-            padding: 1%;      /* Adds space inside the box */
+            padding: 0%;      /* Adds space inside the box */
             font-size: 150%;    /* Makes text inside bigger */
             font-family: Georgia, Helvetica, sans-serif;
+            color: black;
             background-color: #F2F2F2;
 
     }
-        input::placeholder {
+        input::placeholder {position: relative;
+                  left: 1%;
                   color: black;           /* placeholder text */
                             }      
     
@@ -112,7 +114,8 @@
 </style>
 <style>
     #Location{top: 91%; 
-                  left: 3%;}
+                  left: 3%;
+                }
     #area{position: absolute;
                   top: 83%; 
                   left: 3%;
@@ -166,13 +169,58 @@
         <P class="input-header" id="time-of">Time of observation</P>
         <input type="text"placeholder="Time" class="input-box" id="Time-of-observation">
         <P class="input-header" id="type-bird">Type of bird</P>
-        <input type="text"placeholder="Type" class="input-box" id="Type-of-bird">
+        <form>
+         <label for="type-bird"></label>
+         <select id="Type-of-bird" name="bird" class="input-box">
+            <option value="wood Pigeon">Wood Pigeon</option>
+            <option value="house Sparrow">House Sparrow</option>
+            <option value="starling">Starling</option>
+            <option value="blue Tit">Blue Tit</option>
+            <option value="blackbird">Blackbird</option>
+            <option value="robin">Robin</option>
+            <option value="goldfinch">Goldfinch</option>
+            <option value="magpie">Magpie</option>
+            <option value="other">other</option>
+         </select>
+        </form>
+
         <P class="input-header" id="doing">What activity were they doing ?</P>
-        <input type="text"placeholder="activity" class="input-box" id="activity">
+        <form>
+         <label for="activaty"></label>
+         <select id="activity" name="doing" class="input-box">
+            <option value="visit">visit</option>
+            <option value="feeding">feeding</option>
+            <option value="nesting">nesting</option>
+            <option value="Other">Other </option>
+         </select>
+        </form>
         <P class="input-header" id="Duration">Duration of observation (in minutes) </P>
         <input type="text"placeholder="observation" class="input-box" id="observation">
         <P class="input-header" id="area">Location</P>
-        <input type="text"placeholder="Location" class="input-box" id="Location">
+        <form>
+        <label for="#Location"></label>
+            <select id="Location" name="location" class="input-box">
+                <option value="erean">Erean</option>
+                <option value="brunad">Brunad</option>
+                <option value=" bylyn ">Bylyn</option>
+                <option value="docia">Docia</option>
+                <option value="zord">Zord</option>
+        <option value="yaean ">Yaean </option>
+        <option value="frestin">Frestin</option>
+        <option value="stonyam">Stonyam</option>
+        <option value="marend">Marend</option>
+        <option value="ryall">Ryall</option>
+        <option value="pryn">Pryn</option>
+        <option value="keivia">Keivia</option>
+        <option value="ruril">Ruril</option>
+        <option value="tallan ">Tallan</option>
+        <option value="aohad">Adohad</option>
+        <option value="obelyn">Obelyn</option>
+        <option value="holmer">Holmer</option>
+        <option value="vertwall">Vertwall</option>
+        </select>
+
+        </form>
         <P class="input-header" id="image-guide">Image Optional must be max 1.2 
             <br>Megabytes in size; png or jpg only 
         </P> 
