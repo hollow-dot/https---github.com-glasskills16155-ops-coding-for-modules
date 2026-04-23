@@ -15,7 +15,7 @@ while True:
  ftp = FTP("host.docker.internal")
  file_credentials1 = []
  print("please enter host num,port num, username, password")
- print("all seperated by commas or press q if you want to quite the program")
+ print("all seperated by commas for example 132.0.0.1,31,filezilla transport,folders4movingFILes")
  credentials = input()
  host_port_user_pass_copy = credentials
  file_credentials1.append(credentials)
@@ -28,19 +28,19 @@ while True:
   login = ftp.login(spliting_credentials1[2], spliting_credentials1[3])
  except ConnectionRefusedError:
 
-   print("invalid port number out of range")
+   print("error port number out of range")
  except ftplib.error_perm:
 
-   print("invalid the username or password is inccorect")
+   print("error the username or password is incorrect")
  except IndexError:
 
-   print("invalid Credentials")
+   print("error invalid Credentials")
  except ValueError:
 
-   print("invalid port number must be an integer")
+   print("error port number must be an integer")
  except socket.gaierror:
    
-   print("invalid host number, must look like this 123.0.0.1")
+   print("error host number, must look like this 123.0.0.1")
  else:
    break
 print(f"login successful {login}")
@@ -53,7 +53,7 @@ while True:
         if not os.path.isdir(folder_path):
             raise FileNotFoundError(f"Folder not found: {folder_path}")
     except FileNotFoundError:
-        print("please input valid folder path")
+        print("error folder path invalid. please input valid folder path")
     else:
         print(f"Folder path accepted {folder_path}")
         break
@@ -72,7 +72,7 @@ def re_run():
    if not os.path.isdir(good_folder):
     raise FileNotFoundError(f"Folder not found: {good_folder}")
   except FileNotFoundError:
-   print("please input valid file path for good files")
+   print("error folder path is invalid. please input valid file path for good files")
   else:
     print(f"folder path for good files accepted {good_folder}")
     switching_box.append(good_folder)
@@ -91,7 +91,7 @@ def re_run2():
      if not os.path.isdir(bad_folder):
       raise FileNotFoundError(f"Folder not found {bad_folder}")
   except FileNotFoundError:
-     print("please input valid file path")
+     print("error folder path is invalid. please input valid file path for bad files")
   else:
      print(f"folder path for bad files accepted {bad_folder}")
      switching_box2.append(bad_folder)
