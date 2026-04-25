@@ -30,32 +30,15 @@ def delete():
 @app.route("/post-page", methods=["GET", "POST"])
 def generate():
     if request.method == "POST":
-        username = request.form.get('fozi_b3Ar')
+        username = request.form.get('username')
+        password = request.form.get('password')
+        if not username or not password:
+            return render_template("login.html"), 400 # this is error for empty box
 
-        if not username:
-            return "Invalid username", 400 # this is error for empty box
-
-        if username not in ["fozi_b3Ar"]:
-            return render_template("login.html"), 401
+        if username == "fozi_b3Ar" and password == "Gonz0":
+            return render_template("post_page.html")
         
-
-        return render_template("post_page.html")
-@app.route("/password", methods=["GET", "POST"])
-
-@app.route("/password", methods=["GET", "POST"])
-def password():
-    if request.method == "GET":
-        return render_template("login.html")
-
-    password_code = request.form.get('Gonz0')
-
-    if not password_code:
-        return "Invalid password", 400
-
-    if password_code != "Gonz0":
-        return render_template("login.html"), 401
-
-    return render_template("post_page.html")
+    return render_template("login.html")
         
 
 UPLOAD_FOLDER = r"C:\Users\mengw\OneDrive\coding\working web site\templates\folder_for_images"
@@ -80,7 +63,7 @@ def image_submit():
     filepath = os.path.join(UPLOAD_FOLDER, filename)
     file.save(filepath)
 
-    return render_template("success_page.html")
+    return render_template("post_page.html")
 
 
 
