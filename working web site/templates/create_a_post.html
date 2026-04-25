@@ -163,7 +163,6 @@
         <h1><a href="home page.HTML">back</a></h1>
         <h3> Please fill all non-optional fields </h3> 
         <div class="post-create">
-        <h2><a href="home page.HTML">create post</a></h2>
         <P class="input-header" id="date-seeing">Date of observation </P>
         <input type="date"placeholder="date" 
             class="input-box" 
@@ -231,10 +230,14 @@
         </select>
 
         </form>
+        
         <P class="input-header" id="image-guide">Image Optional must be max 1.2 
             <br>Megabytes in size; png or jpg only 
         </P> 
+        <form method="POST" enctype="multipart/form-data"action="/create-post">
         <input type="file" id="image_for_post" name="image">
+        <h2><button type="submit">create post</button></h2>
+        </form>
         <P class="input-header" id="messege">comment</P> 
         <input type="text" id="comments">
         </div>

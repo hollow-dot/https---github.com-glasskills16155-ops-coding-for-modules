@@ -6,14 +6,14 @@ app = Flask(__name__)
 UPLOAD_FOLDER = r"C:\Users\mengw\OneDrive\coding\moving image to folder\templates\images"
 
 @app.route("/")
-def home():
-    return render_template("index.html")
+def create_post():
+    return render_template("create a post.HTML")
 
-@app.route("/succsses_page.html")
+@app.route("/home page.HTML")
 def succsses_page():
-    return render_template("succsses_page.html")
+    return render_template("home page.HTML")
 
-@app.route("/generate", methods=["GET", "POST"]) # when to run the program 
+@app.route("/error_page", methods=["GET", "POST"]) # when to run the program 
 
 def image_submit():
     if request.method == "POST": # checks bettween GET OR POST
@@ -32,6 +32,7 @@ def image_submit():
          return render_template("succsses_page.html")
 
     return render_template("index.html")
+
 
 
 if __name__ == "__main__":
