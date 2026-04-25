@@ -1,23 +1,33 @@
-from flask import request
-from werkzeug.utils import secure_filename
-import os
+from flask import Flask, render_template, request
+from datetime import date
+app = Flask(__name__)
 
-@app.route('/', methods=['GET', 'POST'])
-def upload_image():
+@app.route("/")
+def home():
+    return render_template("error handelig create post.HTML")
+
+
+@app.route("/succsses_page.html")
+def succsses_page():
+    return render_template("succsses_page.html")
+
+@app.route("/generate", methods=["GET", "POST"])
+def generate():
     if request.method == "POST":
-        file = request.files['image']
-        
-        if file.filename != '':
-            filename = secure_filename(file.filename)
-            filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-            
-            file.save(filepath)  # 👈 this "moves" the image into your folder
-            
-            return "Image uploaded!"
+        username = request.form.get('fozi_b3Ar')
 
-    return '''
-    <form method="POST" enctype="multipart/form-data">
-      <input type="file" name="image">
-      <button type="submit">Upload</button>
-    </form>
-    '''
+        if not username:
+            return "Invalid username", 400 # this is error for empty box
+        
+        if username != date:
+            return render_template("error page 2"), 401
+        
+        if username == date:
+            return render_template("succsses_page.HTML")
+
+
+    return render_template("index.html")
+
+
+if __name__ == "__main__":
+    app.run(debug=True)

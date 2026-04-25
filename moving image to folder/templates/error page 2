@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>date of observaton</h1>
+<form action="/generate" method="POST">
+    <input type="text" name="fozi_b3Ar" placeholder="date">
+    <h2>error please input a valid date</h2>
+    <button type="submit">Submit</button>
+</form>
+</body>
+</html>
+
