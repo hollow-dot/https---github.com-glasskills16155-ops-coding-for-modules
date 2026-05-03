@@ -6,65 +6,65 @@
     <title>Document</title>
      <style>
          body {
-            font-family: Georgia, Helvetica, sans-serif;
+            font-family: Georgia, Helvetica, sans-serif; /* font style for the page */
         }   
-        /* Style for the box */
+        
         .border-box {
-            border: 10px solid  rgb(39,83,23); /* thickness, style, color */
-            height: 100vh;   /* full screen height */
-            width: 99%;    /* full screen width */
-            background-color: #FDFFF5; /* optional background */
+            border: 10px solid  rgb(39,83,23); /* style for the box for the backround */
+            height: 100vh;  
+            width: 99%;   
+            background-color: #FDFFF5; 
         }
     </style>
 </head>
 <style>
      h1{
-        position: absolute;
+        position: absolute; /* positon for the "back" link */
             left:2%;
             top: 1%;
      }
 </style>
 <style>
-    .delete-post{position: absolute;
+    .delete-post{position: absolute; /* styel for the second container */
               left: 5%;
               top: 15%;
-              border: 10px solid  rgb(39,83,23); /* thickness, style, color */
-            height: 80vh;   /* full screen height */
-            width: 90%;    /* full screen width */
-            background-color: #F3F1E6; /* optional background */
+              border: 10px solid  rgb(39,83,23); 
+            height: 80vh;   
+            width: 90%;    
+            background-color: #F3F1E6; 
     }
 </style>
 <style>
-    h2{position: absolute;
+    h2{position: absolute; /* style for the "Would you like to delete your post ?" */
        left: 33%;
         top: 1%;
         font-size: 190%;
     }
 </style>
 <style>
-    .box-yes{position: absolute;
+    .box-yes{position: absolute; /* style for the "yes" box */
               left: 25%;
               top: 39%;
               border-radius: 15px;
               border: 10px solid  rgb(0,0,0);
               background-color: rgb(0,0,0);
-              height: 15vh;   /* full screen height */
+              height: 15vh;   
               width: 16%; 
     }
 </style>
 <style>
-    .box-no{position: absolute;
+    .box-no{position: absolute; /* style for the "no" box */
               left: 65%;
               top: 39%;
               border-radius: 15px;
               border: 10px solid  rgb(0,0,0);
               background-color: rgb(0,0,0);
-              height: 15vh;   /* full screen height */
+              height: 15vh;   
               width: 16%; 
     }
 </style>
 <style>
-    #yes-button{position: absolute;
+    #yes-button{position: absolute; /* style for the "yes" link */
             top: -30%;
             left: 30%;
             font-size: 320%;
@@ -72,27 +72,31 @@
     }
 </style>
 <style>
-    #no-button{position: absolute;
+    #no-button{position: absolute; /* style for the "no" link */
             top: -30%;
             left: 35%;
             font-size: 320%;
     }           
 </style>
 <style>
-    a{
-        color:  #F3F1E6;
+    a{ color: #F3F1E6; /* color for the "yes" and "no" links*/
+    }
+</style>
+<style>
+    #no-color{ 
+        color: rgb(85,26,139); /* color for the "back" link */
     }
 </style>
 <body>
      <div class="border-box">
-      <h1><a href="edit_and_delete_post.html">back</a></h1>
+      <h1><a href="edit_and_delete_post.html" id="no-color">back</a></h1>
       <div class="delete-post">
            <h2> Would you like to delete your post ?</h2>
         <div class="box-yes">
-            <p id="yes-button"><a href="post_page.html">yes</a></p>
+            <p id="yes-button" class="white"><a href="post_page.html">yes</a></p>
         </div>
         <div class="box-no">
-             <p id="no-button"><a href="post_page.html">no</a></p>
+             <p id="no-button" class="white"><a href="post_page.html">no</a></p>
         </div>  
       </div>
      </div>

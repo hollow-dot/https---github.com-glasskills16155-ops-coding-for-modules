@@ -51,13 +51,13 @@ def create_post():
 
 def image_submit():
     if request.method == "GET":
-        return render_template("create_post.html")  # your page
+        return render_template("create_a_post.html"), 400  # your page
 
     # POST logic
     file = request.files.get('image')
 
     if not file or file.filename == "":
-        return "No file uploaded", 400
+        return render_template("create_a_post.html"), 400
 
     filename = secure_filename(file.filename)
     filepath = os.path.join(UPLOAD_FOLDER, filename)
