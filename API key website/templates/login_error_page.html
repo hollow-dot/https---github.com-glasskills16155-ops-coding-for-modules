@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <style>
+        body{
+            font-family: papyrus, Helvetica, sans-serif;
+        }
+    </style>
+    <style>
+        .backround-login{
+            border: 10px solid  black;
+            height: 100vh;  
+            width: 99%;  
+            background-image: url("login_backround.jpg"); 
+        }
+    </style>
+    <style>
+        .clear-contianer{position: absolute;
+            top: 11%;
+            left: 13%;
+            height: 80vh;  
+            width: 75%;
+            background-image: url("clear_containor.png");
+        }
+        #instruction-text{ position: relative;
+            top: -3%;
+            left: 17%;
+            font-size: 330%;
+        }
+        #username-input{position: relative; /* styel for the login boxes  */
+            top: 8%;
+            left: 25%;
+              width: 50%;       
+              height: 8%;
+             font-size: 130%; 
+            font-family: papyrus, Helvetica, sans-serif;
+            color:  #000000;
+           border-radius: 10px;
+           background-color: white; 
+        }
+        h2{position: relative;
+            left: 25%;
+            top: 16%;
+            font-size: 250%;
+        }
+    </style>
+    <style>
+        #arrow-left{position: relative;
+           top: 3%;
+           left: 1%;
+        }
+        h1{position: absolute;
+             top: 5%;
+             left: 6%;
+        }
+        a{
+            color: white;
+        }
+    </style>
+     <style>
+        #arrow-right{position: relative;
+            top: 87%;
+           left: 75%;
+        }
+        h3{position: absolute;
+            top: 89%;
+            left: 86%;
+            font-size: xx-large;
+        }
+     </style>
+     <style>
+        .box-error{position: absolute;
+            top: 19%;
+            left: 49%;
+            height: 28vh;  
+            width: 47%;
+            background-image: url("error_box.png");
+        }
+        #error-text{position: relative;
+            left: 4%;
+            font-size: 230%;
+            color: red;
+        }
+     </style>
+<body>
+    <div class="backround-login">
+        <img src="left_arrow.png" alt="left arrow" width="150" id="arrow-left">
+        <h1><a href="home_page.html">back</a></h1>
+         <img src="right_arrow.png" alt="right arrow" width="200" id="arrow-right">
+         <h3><a href="">continue</a></h3>
+      <div class="clear-contianer">
+           <p id="instruction-text"> Please enter your username to login     
+           </p>
+           <h2>username</h2>
+          <input type="text" id="username-input">
+          <div class="box-error">
+            <p id="error-text"> Error in correct username.
+                                <br>Please input a valid username.
+            </p>
+          </div>
+      </div>
+    </div>
+</body>
+</html>

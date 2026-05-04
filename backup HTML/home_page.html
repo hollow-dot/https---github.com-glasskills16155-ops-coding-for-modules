@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <style>
+        body{
+            font-family: papyrus, Helvetica, sans-serif;
+        }
+    </style>
+    <style>
+        .backround-home{
+            border: 10px solid  black;
+            height: 100vh;  
+            width: 99%;  
+            background-image: url("backround for home page.jpg"); 
+        }
+    </style>
+    <style>
+        #sunrise{position: absolute;
+            left: 2%;
+        }
+        h1{position: absolute;
+            left: 9%;
+            top: 4%;
+        }
+    </style>
+    <style>
+        #door{position: absolute;
+            top: 19%;
+            left: 2%; 
+        }
+        h2{position: absolute;
+           top: 17%;
+           left: 9%;
+           font-size: 220%;
+        }
+        a{
+         color: #000;
+        }
+    </style>
+    <style>
+        .instructions-box{position: absolute;
+            height: 71vh;  
+            width: 38%;
+            top: 30%;
+            left: 13%;  
+            background-image: url("clear_text_box.png");
+        }
+    </style>
+    <style>
+        .title-card-box{position: absolute;
+            height: 71vh;  
+            width: 38%;
+            top: 4%;
+            left: 55%; 
+            background-image: url("clear_text_box.png");
+        }
+    </style>
+    <style>
+        #greating-text{position: relative;
+            left: 3%;
+            font-size: 200%;
+        }
+        #register-link{position: relative;
+            left: 35%;
+            font-size: 300%;
+        }
+    </style>
+     <style>
+        #instruction-text{position: relative;
+            top: -1%;
+             left: 4%;
+            font-size: 230%;
+        }
+     </style>
+<body>
+    <div class="backround-home">
+        <img src="home_icon.svg" alt="sunrise-icon" width="80" id="sunrise">
+         <h1>Home</h1>
+        <img src="door_icon.svg" alt="door-icon" width="80" id="door">
+        <h2><a href="login_page.html">login</a></h2>
+        <div class="title-card-box">
+            <p id="greating-text"> Hi weather data users welcome to the Centrala Environmental Agency (CEA), weather data API website 
+                <br>login or register to get you free API key today 
+            </p>
+              <a href="register_page.html" id="register-link">register</a>
+        </div>
+        <div class="instructions-box">
+            <p id="instruction-text"> How to use the website 
+                <br>
+                <br>First register or login to receive an API key 
+                <br>next use the API key to query the desired date 
+                <br>Finaly use the date and enjoy  
+                <br>your weather data
+            </p>
+        </div>
+    </div>
+</body>
+</html>
